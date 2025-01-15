@@ -14,8 +14,49 @@
   }
 }
 
+nav.navContainer {
+  background-color: blue;
+  padding: 3px 5px 3px 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navLinksContainer .navLink {
+  margin: 0 5px 0 5px;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+#profileImageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#profileImageContainer .circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+
+#pinkCircle {
+  background-color: pink;
+}
+
+#blueCircle {
+  background-color: aqua;
+}
+
+footer {
+  background-color: blue;
+  padding: 3px 5px 3px 5px;
+  display: flex;
+  justify-content: start;
+}
+
+footer img {
+  margin: 0 5px 0 5px;
 }
