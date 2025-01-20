@@ -1,6 +1,9 @@
 import React from "react";
+import Picture from '../public/media/IMG_2481.jpg';
+import Image from "next/image";
 
 export default function Body() {
+    const profilePicture = Picture;
     return(
         <div id="pageContainer">
 
@@ -10,7 +13,13 @@ export default function Body() {
 
         <div id="profileImageContainer">
             <div id="pinkCircle" className="circle"></div>
-            <img id="profilePic" className="circle" src="#" alt="Cee's profile picture" />
+                <div id="ceeHomeProfilePicture" className="circle">
+                    <Image 
+                        src={profilePicture}
+                        placeholder="blur"
+                        alt="Cee's profile picture"
+                    />
+                </div>
             <div id="blueCircle" className="circle"></div>
         </div>
 

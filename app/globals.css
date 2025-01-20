@@ -42,6 +42,10 @@ body {
   border-radius: 100%;
 }
 
+#ceeHomeProfilePicture {
+  overflow: clip;
+}
+
 #pinkCircle {
   background-color: pink;
 }
