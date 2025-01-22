@@ -1,16 +1,15 @@
 'use client';
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import ProfilePicture from '../public/media/IMG_2481.jpg';
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 export default function Body() {
     const profilePicture = ProfilePicture;
 
-    const animationContainer = useRef( null );
-    const pinkCircle = useRef( null );
-    const blueCircle = useRef( null );
+    const animationContainer = useRef(null);
+    const pinkCircle = useRef(null);
+    const blueCircle = useRef(null);
 
     useEffect( () => {
         const context = gsap.context( () => {
@@ -20,7 +19,7 @@ export default function Body() {
                     start: "top bottom",
                     end: "bottom top",
                     scrub: true
-                },
+                }
             });
 
             tl.to(pinkCircle.current, {y: -50}, 0).to(blueCircle.current, {x: 100}, 0);
