@@ -1,18 +1,44 @@
-import React from "react";
-import Picture from '../public/media/IMG_2481.jpg';
+'use client';
+import React, { useLayoutEffect } from "react";
+import ProfilePicture from '../public/media/IMG_2481.jpg';
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 export default function Body() {
-    const profilePicture = Picture;
-    return(
+    const profilePicture = ProfilePicture;
+
+    const animationContainer = useRef( null );
+    const pinkCircle = useRef( null );
+    const blueCircle = useRef( null );
+
+    useEffect( () => {
+        const context = gsap.context( () => {
+            let tl =  gsap.timeline({
+                scrollTrigger: {
+                    trigger: animationContainer.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                },
+            });
+
+            tl.to(pinkCircle.current, {y: -50}, 0).to(blueCircle.current, {x: 100}, 0);
+        });
+
+        return () => context.revert();
+
+    }, []);
+
+    return (
         <div id="pageContainer">
 
         <div id="loadingMask"></div>
 
         <div id="welcomeBannerContainer"></div>
 
-        <div id="profileImageContainer">
-            <div id="pinkCircle" className="circle"></div>
+        <div ref={ animationContainer } id="profileImageContainer">
+            <div ref={ pinkCircle } id="pinkCircle" className="circle"></div>
                 <div id="ceeHomeProfilePicture" className="circle">
                     <Image 
                         src={profilePicture}
@@ -20,7 +46,7 @@ export default function Body() {
                         alt="Cee's profile picture"
                     />
                 </div>
-            <div id="blueCircle" className="circle"></div>
+            <div ref={ blueCircle } id="blueCircle" className="circle"></div>
         </div>
 
         <div id="infoContainer">
