@@ -46,10 +46,6 @@ body {
   overflow: clip;
 }
 
-#blueCircle {
-  background-color: aqua;
-}
-
 footer {
   background-color: blue;
   padding: 3px 5px 3px 5px;

@@ -5,7 +5,8 @@ import DevProfilePicture from '../../public/media/IMG_2481.jpg';
 import { motion } from "motion/react";
 
 export default function ProfilePicture() {
-    const [x, setX] = useState(0);
+    const [pinkX, setPinkX] = useState(0);
+    const [blueX, setBlueX] = useState(0);
 
     const circle: React.CSSProperties = {
         width: "100px",
@@ -14,14 +15,15 @@ export default function ProfilePicture() {
     };
 
     onwheel = (e) => {
-        setX(x + e.deltaY);
+        setPinkX(pinkX + e.deltaY);
+        setBlueX(blueX - e.deltaY);
     };
 
     return(
         <div id="profileImageContainer">
             <motion.div
                 style={{...circle, backgroundColor: "pink"}} 
-                animate={{x}}
+                animate={{x: pinkX}}
             />
                 <div id="ceeHomeProfilePicture" className="circle">
                     <Image 
@@ -30,7 +32,10 @@ export default function ProfilePicture() {
                         alt="Cee's profile picture"
                     />
                 </div>
-            <div id="blueCircle" className="circle"></div>
+                <motion.div
+                style={{...circle, backgroundColor: "aqua"}} 
+                animate={{x: blueX}}
+            />        
         </div>    
     );
 };
