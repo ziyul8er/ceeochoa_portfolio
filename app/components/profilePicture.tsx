@@ -1,5 +1,5 @@
 'use client';
-import React, {useEffect, useRef, useState} from "react";
+import React, {useState} from "react";
 import Image from "next/image";
 import DevProfilePicture from '../../public/media/IMG_2481.jpg';
 import { motion } from "motion/react";
@@ -30,21 +30,15 @@ export default function ProfilePicture() {
 
     return(
         <div id="profileImageContainer">
-            <motion.div
-                style={{...circle, backgroundColor: "pink"}} 
-                animate={{x: pinkX}}
-            />
-                <div id="ceeHomeProfilePicture" className="circle">
-                    <Image 
-                        src={DevProfilePicture}
-                        placeholder="blur"
-                        alt="Cee's profile picture"
-                    />
-                </div>
-                <motion.div
-                style={{...circle, backgroundColor: "aqua"}} 
-                animate={{x: blueX}}
-            />        
+            <motion.div style={{...circle, backgroundColor: "pink"}} animate={{x: pinkX}} />
+            <div id="ceeHomeProfilePicture" className="circle">
+                <Image 
+                    src={DevProfilePicture}
+                    placeholder="blur"
+                    alt="Cee's profile picture"
+                />
+            </div>
+            <motion.div style={{...circle, backgroundColor: "aqua"}} animate={{x: blueX}} />        
         </div>    
     );
 };
