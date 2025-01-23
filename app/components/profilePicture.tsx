@@ -15,8 +15,17 @@ export default function ProfilePicture() {
     };
 
     onwheel = (e) => {
-        setPinkX(pinkX + e.deltaY);
-        setBlueX(blueX - e.deltaY);
+        if (e.deltaY > 0 && pinkX > -100) {
+            setPinkX(pinkX - e.deltaY);
+            setBlueX(blueX + e.deltaY);
+        } 
+        
+        if (e.deltaY < 0 && pinkX < 250) {
+            setPinkX(pinkX - e.deltaY);
+            setBlueX(blueX + e.deltaY);
+        }
+
+        console.log("pink: ", pinkX, "blue: ", blueX)
     };
 
     return(
