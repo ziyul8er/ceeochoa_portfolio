@@ -1,49 +1,36 @@
-import React, {useEffect, useRef} from "react";
+'use client';
+import React, {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 import DevProfilePicture from '../../public/media/IMG_2481.jpg';
-import gsap from "gsap";
+import { motion } from "motion/react";
 
 export default function ProfilePicture() {
-    const devProfilePicture = DevProfilePicture;
+    const [x, setX] = useState(0);
 
-    const animationContainer = useRef(null);
-    const pinkCircle = useRef(null);
-    const blueCircle = useRef(null);
+    const circle: React.CSSProperties = {
+        width: "100px",
+        height: "100px",
+        borderRadius: "100%",
+    };
 
-    useEffect( () => {
-        const context = gsap.context( () => {
-            const tl =  gsap.timeline({
-                scrollTrigger: {
-                    scroller: animationContainer.current,
-                    trigger: animationContainer.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
-                }
-            });
-
-            tl.to(pinkCircle.current, {x: -100}, 0)
-                .to(blueCircle.current, {x: 100}, 0)
-                .to(pinkCircle.current, {x: 100}, 1)
-                .to(blueCircle.current, {x: -100}, 1)
-                .repeat(-1);
-        });
-
-        return () => context.revert();
-
-    }, []);
+    onwheel = (e) => {
+        setX(x + e.deltaY);
+    };
 
     return(
-        <div ref={ animationContainer } id="profileImageContainer">
-            <div ref={ pinkCircle } id="pinkCircle" className="circle"></div>
+        <div id="profileImageContainer">
+            <motion.div
+                style={{...circle, backgroundColor: "pink"}} 
+                animate={{x}}
+            />
                 <div id="ceeHomeProfilePicture" className="circle">
                     <Image 
-                        src={devProfilePicture}
+                        src={DevProfilePicture}
                         placeholder="blur"
                         alt="Cee's profile picture"
                     />
                 </div>
-            <div ref={ blueCircle } id="blueCircle" className="circle"></div>
-        </div>
+            <div id="blueCircle" className="circle"></div>
+        </div>    
     );
 };
