@@ -6,7 +6,7 @@ export default function Landing() {
     return (
         <div className="landingContainer">
 
-            <div className="welcome">
+            <div className="welcomeContainer">
                 <div className="devName">
                     <h1>Cee Ochoa</h1>
                     <h2>Engineer, Web Developer, Something else</h2>
