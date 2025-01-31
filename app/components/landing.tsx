@@ -1,6 +1,7 @@
-'use client';
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import './landing.css';
+import WelcomeMessage from "./welcomeMessage";
+
 
 export default function Landing() {
     return (
@@ -12,11 +13,7 @@ export default function Landing() {
                     <h2>Engineer, Web Developer, Something else</h2>
                 </div>
 
-                <div className="bio">
-                    <p>I'm a Front-End Developer based in Melbourne with over 3 years of experience building modern, user-friendly web applications. I specialize in React, Next.js, and TypeScript, crafting seamless digital experiences with a strong focus on performance and accessibility.</p>
-
-                    <p>Alongside my front-end expertise, I have a solid grasp of back-end development with C# and .NET, allowing me to collaborate effectively across the full stack.</p>
-                </div>
+                <WelcomeMessage />
             </div>
             
             <div className="devApproach">

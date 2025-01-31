@@ -1,8 +1,21 @@
-import React from "react";
+'use client'
+import React, {useState, useEffect} from "react";
 import "./pokedex.css";
 
+function FetchData() {
+  const [pokeData, setPokeData] = useState(null);
+
+  useEffect(() => {
+    const data = fetch('https://pokeapi.co/api/v2/pokemon/ditto');
+    setPokeData(data);
+  }, []);
+
+}
+
 export default function Pokedex() {
+  FetchData();
   return(
+
     <div id="pokedex">
       <div id="left">
         <div id="logo"></div>
