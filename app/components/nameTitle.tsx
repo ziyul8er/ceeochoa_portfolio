@@ -1,5 +1,5 @@
 'use client';
-import React, { MouseEvent, MouseEventHandler, useRef, useState } from "react";
+import React, {  useRef, useState } from "react";
 import localFont from 'next/font/local';
 import { NextFont } from "next/dist/compiled/@next/font";
 import { motion } from 'motion/react';
@@ -15,14 +15,11 @@ interface IFonts {
 const defaultFont = localFont({ src: "../fonts/franchise-free-bold.ttf" });
 const engineerFont = localFont({ src: "../fonts/outward-block-webfont.woff2" });
 const hackerFont = localFont({ src: "../fonts/st-marie.woff2"});
-const devFont = localFont({ src: "../fonts/kaushanScript-regular.ttf"});
+const devFont = localFont({ src: "../fonts/pixelated-elegance-regular-ovyAA.ttf"});
 
 const fontsArray: IFonts = [ defaultFont, engineerFont, hackerFont, devFont ];
 
 export default function NameTitle() {
-    const engineerRef = useRef(null);
-    const devRef = useRef(null);
-    const hackerRef = useRef(null);
 
     const [ displayFont, setDisplayFont ] = useState( fontsArray[1] );
 
@@ -51,25 +48,22 @@ export default function NameTitle() {
                 <span>Cee Ochoa</span>
             </motion.div>
             <div className="u-themesWrapper">
-                <div ref={engineerRef}
-                    className="nt-nameTitle-engineer"
+                <div className="nt-nameTitle-engineer"
                     onClick={(e) => changeThemes(e)}
                 >
                     ENGINEER
                 </div>
 
-                <div ref={devRef}
-                    className="nt-nameTitle-dev"
+                <div className="nt-nameTitle-dev"
                     onClick={(e) => changeThemes(e)}
                 >
-                    <span>WEB DEVELOPER</span>
+                    WEB DEVELOPER
                 </div>
 
-                <div ref={hackerRef}
-                    className="nt-nameTitle-hacker"
+                <div className="nt-nameTitle-hacker"
                     onClick={(e) => changeThemes(e)}
                 >
-                    <span>HACKER</span>
+                    HACKER
                 </div>
             </div>
         </div>
