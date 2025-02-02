@@ -3,27 +3,43 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: var(--background);
 }
 
 .nt-nameTitle-me {
-    position: absolute;
-    top: 0;
+    z-index: 1;
+    /* position: absolute;
+    top: 0; */
+    height: 100%;
     font-size: 300px;
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
-    background-clip: text;
-    color: black;
-    z-index: 1;
+    background-clip: text; */
+    background-color: black;
+    color: white;
+    mix-blend-mode: multiply;
+
 }
 
 .nt-nameTitle-role {
     position: absolute;
     top: 0;
     height: 100%;
-    font-size: 400px;
+    font-size: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.svg {
+    height: 100%;
+    z-index: 1;
+    background-color: black;
+    color: white;
+    mix-blend-mode: multiply;
+}
+
+.svg path {
+    /* fill: transparent; */
 }
