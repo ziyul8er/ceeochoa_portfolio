@@ -1,10 +1,8 @@
 import React from "react";
-import Landing from "./components/landing";
+import NameTitle from "./components/nameTitle";
 
 export default function Home() {
   return (
-    <div className="">
-      <Landing />
-    </div>
+    <NameTitle />
   );
 }
