@@ -1,7 +1,9 @@
 .nt-nameTitle {
     position: absolute;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    background-color: black;
+    overflow: hidden;
 }
 
 .nt-nameTitle-name {
@@ -15,15 +17,16 @@
 }
 
 .nt-nameTitle-marquee {
+    z-index: 1;
     position: absolute;
     top: 25%;
-    background-color: transparent;
     font-size: 100px;
+    background-color: transparent;
+    color: black;
 }
 
 .svg {
-    z-index: 1;    
-    background-color: black;
+    background-color: transparent;
     color: white;
     mix-blend-mode: difference;
 }
