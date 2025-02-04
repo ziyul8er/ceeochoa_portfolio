@@ -13,22 +13,9 @@ const blockFont: NextFont = localFont({ src: "../fonts/outward-block-webfont.wof
 export default function NameTitle() {
     const refTop = useRef<HTMLDivElement>(null)
     const refBottom = useRef<HTMLDivElement>(null)
-    const speed = 2000;
-    const distanceTravelled = 400;
     
-    useAnimationFrame((t) => {
-        if (!refTop.current) return;
-        if (!refBottom.current) return;
-
-        let xTop = (Math.sin(t / speed)) * distanceTravelled;
-        let xBottom = -(Math.sin(t / speed)) * distanceTravelled;
-
-
-        refTop.current.style.transform = `translateX(${xTop}px)`;
-        refBottom.current.style.transform = `translateX(${xBottom}px)`;
-
-    });
-
+    const speed: number = 2000;
+    const distanceTravelled: number = 400;
     const web: string = 'WEB';
     const dev: string = 'DEVELOPER';
     const space: string = '·';
@@ -39,6 +26,7 @@ export default function NameTitle() {
         marquee = marquee + web + space + dev + space;
     }
 
+    //svgs
     const svgNamePaths = {
         a: <path fill="white" strokeWidth="1" d="M113 700q14 0 23.5 -10t9.5 -24v-283v-67v-316h-67v316h-12v-316h-67v316v67v283q0 14 9.5 24t23.5 10h80zM79 383v250h-12v-250h12z" />,
         c: <path fill="white" strokeWidth="1" d="M33 0q-14 0 -23.5 9.5t-9.5 23.5v633q0 14 9.5 24t23.5 10h80q14 0 23.5 -10t9.5 -24v-310h-67v277h-12v-566h12v277h67v-311q0 -14 -9.5 -23.5t-23.5 -9.5h-80v0z" />,
@@ -46,6 +34,18 @@ export default function NameTitle() {
         h: <path fill="white" strokeWidth="1" d="M67 316v-316h-67v316v67v317h67v-317h12v317h67v-317v-67v-316h-67v316h-12v0z" />,
         o: <path fill="white" strokeWidth="1" d="M33 0q-14 0 -23.5 9.5t-9.5 23.5v634q0 14 9.5 23.5t23.5 9.5h80q14 0 23.5 -9.5t9.5 -23.5v-634q0 -14 -9.5 -23.5t-23.5 -9.5h-80zM67 67h12v566h-12v-566z" />
     }
+
+    useAnimationFrame((t) => {
+        if (!refTop.current) return;
+        if (!refBottom.current) return;
+
+        let xTop = (Math.sin(t / speed)) * distanceTravelled;
+        let xBottom = -(Math.sin(t / speed)) * distanceTravelled;
+
+        refTop.current.style.transform = `translateX(${xTop}px)`;
+        refBottom.current.style.transform = `translateX(${xBottom}px)`;
+
+    });
 
     return(
         <div className="nt-nameTitle">
@@ -87,8 +87,7 @@ export default function NameTitle() {
             </motion.div>
             <motion.div
                 ref={refBottom}
-                className={"nt-nameTitle-marquee " + blockFont.className}
-                style={{top: "60%"}}
+                className={"nt-nameTitle-marquee nt-nameTitle-marquee--row " + blockFont.className}
             >
                 {marquee}
             </motion.div>
