@@ -4,7 +4,7 @@ import localFont from 'next/font/local';
 import { NextFont } from "next/dist/compiled/@next/font";
 import '../styles/nameTitle.css';
 import '../global.css';
-import { motion, useAnimationFrame, useTime } from "motion/react";
+import { motion, useAnimationFrame } from "motion/react";
 
 // Fonts
 const boderFont: NextFont = localFont({ src: "../fonts/outward-borders-webfont.woff2" });
@@ -13,15 +13,14 @@ const blockFont: NextFont = localFont({ src: "../fonts/outward-block-webfont.wof
 export default function NameTitle() {
     const refTop = useRef<HTMLDivElement>(null)
     const refBottom = useRef<HTMLDivElement>(null)
-    const time = useTime();
     const distanceTravelled = 1000;
     
-    useAnimationFrame((time) => {
+    useAnimationFrame((t) => {
         if (!refTop.current) return;
         if (!refBottom.current) return;
 
-        const xTop = (Math.sin(time / 9000)) * distanceTravelled;
-        const xBottom = (Math.sin(time / 9000)) * distanceTravelled;
+        const xTop = (Math.sin(t / 9000)) * distanceTravelled;
+        const xBottom = -(Math.sin(t / 9000)) * distanceTravelled;
         refTop.current.style.transform = `translateX(${xTop}px)`;
         refBottom.current.style.transform = `translateX(${xBottom}px)`;
     });

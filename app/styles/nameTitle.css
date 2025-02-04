@@ -1,8 +1,8 @@
 .nt-nameTitle {
-    position: absolute;
+    position: relative;
     display: flex;
-    justify-content: space-between;
-    background-color: black;
+    justify-content: center;
+    background-color: var(--background);
     overflow: hidden;
 }
 
@@ -22,15 +22,10 @@
     top: 25%;
     font-size: 100px;
     background-color: transparent;
-    color: black;
+    color: var(--background);
 }
 
 .svg {
     background-color: transparent;
-    color: white;
     mix-blend-mode: difference;
-}
-
-.svg path {
-    /* fill: transparent; */
 }
