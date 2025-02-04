@@ -13,16 +13,20 @@ const blockFont: NextFont = localFont({ src: "../fonts/outward-block-webfont.wof
 export default function NameTitle() {
     const refTop = useRef<HTMLDivElement>(null)
     const refBottom = useRef<HTMLDivElement>(null)
-    const distanceTravelled = 1000;
+    const speed = 2000;
+    const distanceTravelled = 400;
     
     useAnimationFrame((t) => {
         if (!refTop.current) return;
         if (!refBottom.current) return;
 
-        const xTop = (Math.sin(t / 9000)) * distanceTravelled;
-        const xBottom = -(Math.sin(t / 9000)) * distanceTravelled;
+        let xTop = (Math.sin(t / speed)) * distanceTravelled;
+        let xBottom = -(Math.sin(t / speed)) * distanceTravelled;
+
+
         refTop.current.style.transform = `translateX(${xTop}px)`;
         refBottom.current.style.transform = `translateX(${xBottom}px)`;
+
     });
 
     const web: string = 'WEB';
@@ -31,7 +35,7 @@ export default function NameTitle() {
 
     let  marquee: string = space;
 
-    for (let i=0; i<10; i++) {
+    for (let i = 0; i < 10; i++) {
         marquee = marquee + web + space + dev + space;
     }
 
