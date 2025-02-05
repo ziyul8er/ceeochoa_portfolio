@@ -9,9 +9,9 @@
 .nt-nameTitle-name {
     display: flex;
     justify-content: center;
+    align-self: center;
     height: 40vh;
     position: absolute;
-    align-self: center;
     overflow: hidden;
 }
 
@@ -46,10 +46,14 @@
     }
 
     .nt-nameTitle-name {
-
+        position: static;
+        align-self: baseline;
+        height: 100vh;
     }
 
     .nt-nameTitle-surname {
-        
+        position: static;
+        height: 100vh;
+        align-self: baseline;
     }
 }
