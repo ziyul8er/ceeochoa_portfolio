@@ -1,4 +1,5 @@
 .nt-nameTitle {
+    height: 700px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -10,12 +11,14 @@
     justify-content: center;
     height: 40vh;
     position: absolute;
+    align-self: center;
     overflow: hidden;
 }
 
 .nt-nameTitle-surname {
     display: flex;
     justify-content: center;
+    align-self: center;
     height: 40vh;
     position: absolute;
     top: 324.8;
@@ -25,13 +28,14 @@
 .nt-nameTitle-marquee {
     z-index: 1;
     position: absolute;
-    top: 37%;
-    font-size: 4em;
+    top: 28%;
+    font-size: 100px;
     background-color: transparent;
     color: var(--background);
+    opacity: 0.6;
 }
 
-.svg-name {
+.svg {
     background-color: transparent;
-    mix-blend-mode: screen;
+    mix-blend-mode: difference;
 }
