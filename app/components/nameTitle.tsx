@@ -83,7 +83,7 @@ export default function NameTitle() {
                 <svg viewBox="0 0 146 700" className="svg" style={{...svgStyles, transform: "scale(1, -1)"}}>
                     {svgNamePaths.a}
                 </svg>
-                <motion.div ref={refBottom}
+                <motion.div 
                     className={"nt-nameTitle-marquee nt-nameTitle-marquee--row " + blockFont.className}
                 >
                     {marquee}
