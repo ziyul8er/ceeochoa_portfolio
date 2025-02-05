@@ -1,31 +1,37 @@
 .nt-nameTitle {
     position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     background-color: var(--background);
-    overflow: hidden;
 }
 
 .nt-nameTitle-name {
     display: flex;
-    margin: 10px;
+    justify-content: center;
+    height: 40vh;
+    position: absolute;
+    overflow: hidden;
 }
 
 .nt-nameTitle-surname {
     display: flex;
-    margin: 10px;
+    justify-content: center;
+    height: 40vh;
+    position: absolute;
+    top: 324.8;
+    overflow: hidden;
 }
 
 .nt-nameTitle-marquee {
     z-index: 1;
     position: absolute;
-    top: 25%;
-    font-size: 100px;
+    top: 37%;
+    font-size: 4em;
     background-color: transparent;
     color: var(--background);
 }
 
-.svg {
+.svg-name {
     background-color: transparent;
-    mix-blend-mode: difference;
+    mix-blend-mode: screen;
 }

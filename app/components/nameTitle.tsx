@@ -13,7 +13,7 @@ export default function NameTitle() {
     const refTop = useRef<HTMLDivElement>(null)
     const refBottom = useRef<HTMLDivElement>(null)
     
-    const speed: number = 2000;
+    const speed: number = 4000;
     const distanceTravelled: number = 400;
     const web: string = 'WEB';
     const dev: string = 'DEVELOPER';
@@ -34,7 +34,7 @@ export default function NameTitle() {
         o: <path fill="white" strokeWidth="1" d="M33 0q-14 0 -23.5 9.5t-9.5 23.5v634q0 14 9.5 23.5t23.5 9.5h80q14 0 23.5 -9.5t9.5 -23.5v-634q0 -14 -9.5 -23.5t-23.5 -9.5h-80zM67 67h12v566h-12v-566z" />
     }
 
-    const svgStyles: CSSProperties = {height: "1px", overflow: "visible"};
+    const svgStyles: CSSProperties = { overflow: "visible"};
 
     useAnimationFrame((t) => {
         if (!refTop.current) return;
@@ -51,45 +51,43 @@ export default function NameTitle() {
     return(
         <div className="nt-nameTitle">
             <div className="nt-nameTitle-name">
-                <svg className="svg" style={svgStyles} >
+                <svg viewBox="0 0 146 700" className="svg-name" style={svgStyles} >
                     {svgNamePaths.c}
                 </svg>
-                <svg className="svg" style={svgStyles}>
+                <svg viewBox="0 0 146 700" className="svg-name" style={svgStyles}>
                     {svgNamePaths.e}
                 </svg>
-                <svg className="svg" style={svgStyles}>
+                <svg viewBox="0 0 146 700" className="svg-name" style={svgStyles}>
                     {svgNamePaths.e}
                 </svg>
-                            {/* <motion.div
-                ref={refTop}
-                className={"nt-nameTitle-marquee " + blockFont.className}
-            >
-                {marquee}
-            </motion.div> */}
+                <motion.div ref={refTop}
+                    className={"nt-nameTitle-marquee " + blockFont.className}
+                >
+                    {marquee}
+                </motion.div>
             </div>
 
             <div className="nt-nameTitle-surname">
-                <svg className="svg" style={svgStyles}>
+                <svg viewBox="0 0 146 700" className="svg" style={svgStyles}>
                     {svgNamePaths.o}
                 </svg>
-                <svg className="svg" style={svgStyles}>
+                <svg viewBox="0 0 146 700" className="svg" style={svgStyles}>
                     {svgNamePaths.c}
                 </svg>
-                <svg className="svg" style={svgStyles}>
+                <svg viewBox="0 0 146 700" className="svg" style={svgStyles}>
                     {svgNamePaths.h}
                 </svg>
-                <svg className="svg" style={svgStyles}>
+                <svg viewBox="0 0 146 700" className="svg" style={svgStyles}>
                     {svgNamePaths.o}
                 </svg>
-                {/* <svg className="svg" style={{...svgStyles, transform: "scale(1, -1)"}}>
+                <svg viewBox="0 0 146 700" className="svg" style={{...svgStyles, transform: "scale(1, -1)"}}>
                     {svgNamePaths.a}
-                </svg> */}
-                            {/* <motion.div
-                ref={refBottom}
-                className={"nt-nameTitle-marquee nt-nameTitle-marquee--row " + blockFont.className}
-            >
-                {marquee}
-            </motion.div> */}
+                </svg>
+                <motion.div ref={refBottom}
+                    className={"nt-nameTitle-marquee nt-nameTitle-marquee--row " + blockFont.className}
+                >
+                    {marquee}
+                </motion.div>
             </div>
 
 
