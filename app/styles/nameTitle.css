@@ -39,3 +39,17 @@
     background-color: transparent;
     mix-blend-mode: difference;
 }
+
+@media screen and (min-width: 600px) {
+    .nt-nameTitle {
+        flex-direction: row;
+    }
+
+    .nt-nameTitle-name {
+
+    }
+
+    .nt-nameTitle-surname {
+        
+    }
+}
