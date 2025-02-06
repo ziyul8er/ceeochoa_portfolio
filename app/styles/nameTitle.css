@@ -6,7 +6,7 @@
     flex-direction: column;
     align-self: center;
     background-color: var(--background);
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .nt-nameTitle-name {
@@ -55,18 +55,20 @@
 @media screen and (min-width: 640px) {
     .nt-nameTitle {
         flex-direction: row;
+        /* justify-content: center; */
     }
 
     .nt-nameTitle-name {
-        height: min(80vw, 100%);
+        height: min(55vw, 100%);
     }
 
     .nt-nameTitle-surname {
-        height: min(80vw, 100%);
+        height: min(55vw, 100%);
         top: auto;
     }
 
     .nt-nameTitle-marquee {
-        
+        position: static;
+        align-self: center;
     }
 }

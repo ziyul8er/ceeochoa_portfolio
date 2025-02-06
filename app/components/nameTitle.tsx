@@ -1,56 +1,87 @@
 'use client';
-import React, { RefAttributes, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import localFont from 'next/font/local';
 import { NextFont } from "next/dist/compiled/@next/font";
 import { nameSvgArray, surnameSvgArray } from "../variables/svgPaths";
-import Marquee from "./marquee";
 import '../styles/nameTitle.css';
 import '../global.css';
+import { motion, useAnimationFrame } from "motion/react";
 
-// Fonts
 const blockFont: NextFont = localFont({ src: "../fonts/outward-block-webfont.woff2" });
 
 export default function NameTitle() {
-    const [letterOffset, setLetterOffset] = useState<string | undefined>(undefined);
+    const [surnameOffset, setSurnameOffset] = useState<string | undefined>(undefined);
+    const [nameOffset, setNameOffset] = useState<string | undefined>(undefined);
     const [flexRow, setFlexRow] = useState<boolean>(false);
     const [marqueeOffset, setMarqueeOffset] = useState<string | undefined>(undefined);
-
+    
+    const nameTitleRef = useRef<HTMLDivElement>(null);
     const nameRef = useRef<HTMLDivElement>(null);
     const surnameRef = useRef<HTMLDivElement>(null);
-    const marqueeTopRef = useRef<HTMLDivElement>(null);
-    const marqueeBotRef = useRef<HTMLDivElement>(null);
-
-    function getLetterOffset(ref:HTMLDivElement) {
-        const nameStyles = getComputedStyle(ref);
-        const nameWidth = nameStyles.getPropertyValue('width');
-    
-        if(window.innerWidth < 640) {
-            setLetterOffset(undefined);
-            return;
-        }
-    
-        setLetterOffset(nameWidth);
+    const marqueeRef = useRef<HTMLDivElement>(null);
+    const marqueeRefTop = useRef<HTMLDivElement>(null);
+    const marqueeRefBot = useRef<HTMLDivElement>(null);
+    const speed: number = 500;
+    const distanceTravelled: number = 100;
+    const web: string = 'WEB';
+    const dev: string = 'DEVELOPER';
+    const space: string = '·';
+    let  marquee: string = space;
+    const surnameStyles = surnameOffset ? {left: surnameOffset} : {};
+    const nameStyles = nameOffset ? {left: nameOffset} : {};
+    const classes = `nt-nameTitle-marquee ${blockFont.className}`;
+    const isTopBotHidden = flexRow === true ? " nt-nameTitle-marquee--hidden" : "";
+    const isHidden = !flexRow === true ? " nt-nameTitle-marquee--hidden" : "";
+ 
+    for (let i = 0; i < 10; i++) {
+        marquee = marquee + web + space + dev + space;
     }
 
-    function getMarqueeOffset(ref: HTMLDivElement) {
+    function _getLetterOffset(nameRef: HTMLDivElement, surnameRef: HTMLDivElement, wrapperRef: HTMLDivElement) {
+        if(window.innerWidth < 640) {
+            setNameOffset(undefined);
+            setSurnameOffset(undefined);
+            return;
+        };
+
+        const nameStyles = getComputedStyle(nameRef);
+        const surnameStyles = getComputedStyle(surnameRef);
+        const wrapperStyles = getComputedStyle(wrapperRef);
+        
+        const nameWidth = nameStyles.getPropertyValue('width');
+        const surnameWidth = surnameStyles.getPropertyValue('width');
+        const wrapperWidth = wrapperStyles.getPropertyValue('width');
+        
+        console.log(wrapperWidth);
+        
+            const n = Number(nameWidth.slice(0, -2));
+            const s = Number(surnameWidth.slice(0, -2));
+            const w = Number(wrapperWidth.slice(0, -2));
+
+            const totalGap = w - (n + s);
+            const finalNameOffset = (totalGap / 2).toString() + "px";
+            const finalSurnameOffset = ((n + totalGap / 2)).toString() + "px";
+
+            // return ((w - (n + s))).toString() + "px";
+
+
+        
+        setNameOffset(finalNameOffset);
+        setSurnameOffset(finalSurnameOffset);
+    }
+
+    function _getMarqueeOffset(ref: HTMLDivElement) {
         const marqueeStyles = getComputedStyle(ref);
         const currentOffset = marqueeStyles.getPropertyValue('right');
 
-        const marqueeOffsetNumber = Number(currentOffset.slice(0, -2)) / 2;
-        let marqueeOffset: string;
-
-        if (typeof marqueeOffsetNumber !== "number") {
-            setMarqueeOffset(undefined);
-            return;
-        }
-
-        marqueeOffset = marqueeOffsetNumber.toString();
+        const marqueeOffsetNumber = Math.abs(Number(currentOffset.slice(0, -2)) / 2);
+        const marqueeOffset = marqueeOffsetNumber.toString() + "px";
 
         if(window.innerWidth < 640) {
             setMarqueeOffset(undefined);
             return;
         }
-        console.log(marqueeOffset);
+        // console.log(marqueeOffset);
         setMarqueeOffset(marqueeOffset);
     }
 
@@ -62,33 +93,65 @@ export default function NameTitle() {
         setFlexRow(true);
     }
 
-    useEffect(() => {
-        flexDirection();
+    useAnimationFrame((t) => {
+        if (!marqueeRef.current) return;
+        if (!marqueeRefTop.current) return;
+        if (!marqueeRefBot.current) return;
 
+        const x = (Math.sin(t / speed)) * distanceTravelled;
+        const xBot = -(Math.sin(t / speed)) * distanceTravelled;
+        
+        marqueeRef.current.style.transform = `translateX(${x}px) left:"${surnameOffset}"`;
+        marqueeRefTop.current.style.transform = `translateX(${x}px)`;
+        marqueeRefBot.current.style.transform = `translateX(${xBot}px)`;
+    });
+
+    useEffect(() => {
         if (!nameRef.current) return;
-        getLetterOffset(nameRef.current);
+        if (!surnameRef.current) return;
+        if (!marqueeRef.current) return;
+        if (!nameTitleRef.current) return;
+
+        flexDirection();
+        _getMarqueeOffset(marqueeRef.current);
+        _getLetterOffset(nameRef.current, surnameRef.current,nameTitleRef.current);
 
         window.addEventListener('resize', (screen) => {
-            if (!nameRef.current) return;
-            getLetterOffset(nameRef.current);
-            flexDirection();
-        });
-    }, [screen, letterOffset, flexRow, marqueeOffset]);
+            if (!nameRef.current) return;                
+            if (!marqueeRef.current) return;
+            if (!nameTitleRef.current) return;
+            if (!surnameRef.current) return;
 
-    const surnameStyles = letterOffset ? {left: letterOffset} : {};
+            flexDirection();
+            _getMarqueeOffset(marqueeRef.current);
+            _getLetterOffset(nameRef.current, surnameRef.current,nameTitleRef.current);
+        });
+    }, [screen, surnameOffset, flexRow, marqueeOffset]);
 
     return(
-        <div className="nt-nameTitle">
-            <div ref={nameRef} className="nt-nameTitle-name">
+        <div ref={nameTitleRef} className="nt-nameTitle">
+            <div ref={nameRef} className="nt-nameTitle-name" style={{...nameStyles}}>
                 {nameSvgArray.map(el => el)}
-                <Marquee direction={true} flexRow={flexRow} />
+                <motion.div ref={marqueeRefTop} 
+                    className={classes + isTopBotHidden} 
+                >
+                    {marquee}
+                </motion.div>
             </div>
 
             <div ref={surnameRef} className="nt-nameTitle-surname" style={{...surnameStyles}}>
                 {surnameSvgArray.map(el => el)}
-                <Marquee direction={false} flexRow={flexRow} />
+                <motion.div ref={marqueeRefBot} 
+                    className={classes + isTopBotHidden} 
+                >
+                    {marquee}
+                </motion.div>
             </div>
-            <Marquee direction={false} flexRow={!flexRow} />
+            <motion.div ref={marqueeRef} 
+                className={classes + isHidden}
+            >
+                {marquee}
+            </motion.div>
         </div>
     );
 }

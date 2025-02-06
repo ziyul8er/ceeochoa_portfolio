@@ -47,7 +47,7 @@ export default function Marquee( props: IMarquee) {
             setMarqueeOffset(undefined);
             return;
         }
-        console.log(marqueeOffset);
+        //console.log(marqueeOffset);
         setMarqueeOffset(marqueeOffset);
     }
 
@@ -61,13 +61,13 @@ export default function Marquee( props: IMarquee) {
         });        
     }, [marqueeOffset]);
 
-    useAnimationFrame((t) => {
-        if (!ref.current) return;
+    // useAnimationFrame((t) => {
+    //     if (!ref.current) return;
 
-        const x = (props.direction === true ? 1 : -1) * (Math.sin(t / speed)) * distanceTravelled;
+    //     const x = (props.direction === true ? 1 : -1) * (Math.sin(t / speed)) * distanceTravelled;
         
-        ref.current.style.transform = `translateX(${x}px)`;
-    });
+    //     ref.current.style.transform = `translateX(${x}px)`;
+    // });
 
     return(            
         <motion.div ref={ref} className={classes + hidden} style={{right: marqueeOffset}}>
