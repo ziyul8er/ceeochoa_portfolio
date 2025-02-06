@@ -1,5 +1,5 @@
 'use client';
-import React, { CSSProperties, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import localFont from 'next/font/local';
 import { NextFont } from "next/dist/compiled/@next/font";
 import { nameSvgArray, surnameSvgArray } from "../variables/svgPaths";
