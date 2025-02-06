@@ -49,33 +49,10 @@
 
     .nt-nameTitle-name {
         height: min(80vw, 100%);
-    
-        /* left: 40.5px; */
     }
 
     .nt-nameTitle-surname {
         height: min(80vw, 100%);
         top: auto;
-        /* left: 260.5px; */
     }
-}
-
-@media screen and (min-width: 768px) {
-    .nt-nameTitle-name {
-    }
-
-    .nt-nameTitle-surname {
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    
-}
-
-@media screen and (min-width: 1280px) {
-    
-}
-
-@media screen and (min-width: 1536px) {
-    
 }
