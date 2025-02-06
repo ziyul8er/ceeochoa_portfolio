@@ -6,6 +6,7 @@
     flex-direction: column;
     align-self: center;
     background-color: var(--background);
+    /* overflow: hidden; */
 }
 
 .nt-nameTitle-name {
@@ -34,11 +35,16 @@
 .nt-nameTitle-marquee {
     z-index: 1;
     position: absolute;
+    display: flex;
     top: 28%;
     font-size: 100px;
     background-color: transparent;
     color: var(--background);
     opacity: 0.6;
+}
+
+.nt-nameTitle-marquee--hidden {
+    display: none;
 }
 
 .svg {
@@ -58,5 +64,9 @@
     .nt-nameTitle-surname {
         height: min(80vw, 100%);
         top: auto;
+    }
+
+    .nt-nameTitle-marquee {
+        
     }
 }
