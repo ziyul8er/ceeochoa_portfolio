@@ -42,20 +42,38 @@
     mix-blend-mode: difference;
 }
 
-/* @media screen and (min-width: 600px) {
+@media screen and (min-width: 640px) {
     .nt-nameTitle {
         flex-direction: row;
     }
 
     .nt-nameTitle-name {
-        position: static;
-        align-self: baseline;
-        height: 100vh;
+        align-self: center;
+        /* left: 40.5px; */
     }
 
     .nt-nameTitle-surname {
-        position: static;
-        height: 100vh;
-        align-self: baseline;
+        top: auto;
+        /* left: 260.5px; */
     }
-} */
+}
+
+@media screen and (min-width: 768px) {
+    .nt-nameTitle-name {
+    }
+
+    .nt-nameTitle-surname {
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    
+}
+
+@media screen and (min-width: 1280px) {
+    
+}
+
+@media screen and (min-width: 1536px) {
+    
+}

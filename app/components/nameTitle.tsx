@@ -1,5 +1,5 @@
 'use client';
-import React, { CSSProperties, useRef } from "react";
+import React, { CSSProperties, useEffect, useRef, useState } from "react";
 import localFont from 'next/font/local';
 import { NextFont } from "next/dist/compiled/@next/font";
 import '../styles/nameTitle.css';
@@ -10,9 +10,34 @@ import { motion, useAnimationFrame } from "motion/react";
 const blockFont: NextFont = localFont({ src: "../fonts/outward-block-webfont.woff2" });
 
 export default function NameTitle() {
-    const refTop = useRef<HTMLDivElement>(null)
-    const refBottom = useRef<HTMLDivElement>(null)
-    
+    const [letterOffset, setLetterOffset] = useState<string | undefined>(undefined);
+
+    const marqueeTopRef = useRef<HTMLDivElement>(null);
+    const marqueeBotRef = useRef<HTMLDivElement>(null);
+    const nameRef = useRef<HTMLDivElement>(null);
+    const surnameRef = useRef<HTMLDivElement>(null);
+
+    let surnameStyles: CSSProperties = {};
+
+    useEffect(() => {
+        if (!nameRef.current) return;
+
+        const nameStyles = getComputedStyle(nameRef.current);
+        const nameWidth = nameStyles.getPropertyValue('width');
+
+        setLetterOffset(nameWidth);
+        window.addEventListener('resize', (screen) => {
+
+            if(window.innerWidth < 640) {
+                setLetterOffset(undefined);
+                return;
+            } else {
+                setLetterOffset(nameWidth);
+            }
+        });
+    }, [screen, letterOffset]);
+
+    surnameStyles = letterOffset ? {left: letterOffset} : {};
     const speed: number = 4000;
     const distanceTravelled: number = 400;
     const web: string = 'WEB';
@@ -33,24 +58,24 @@ export default function NameTitle() {
         h: <path fill="white" stroke="black" strokeWidth="1" d="M67 316v-316h-67v316v67v317h67v-317h12v317h67v-317v-67v-316h-67v316h-12v0z" />,
         o: <path fill="white" stroke="black" strokeWidth="1" d="M33 0q-14 0 -23.5 9.5t-9.5 23.5v634q0 14 9.5 23.5t23.5 9.5h80q14 0 23.5 -9.5t9.5 -23.5v-634q0 -14 -9.5 -23.5t-23.5 -9.5h-80zM67 67h12v566h-12v-566z" />
     }
-
     const svgStyles: CSSProperties = { overflow: "visible"};
 
+
     useAnimationFrame((t) => {
-        if (!refTop.current) return;
-        if (!refBottom.current) return;
+        if (!marqueeTopRef.current) return;
+        if (!marqueeBotRef.current) return;
 
-        let xTop = (Math.sin(t / speed)) * distanceTravelled;
-        let xBottom = -(Math.sin(t / speed)) * distanceTravelled;
+        const xTop = (Math.sin(t / speed)) * distanceTravelled;
+        const xBottom = -(Math.sin(t / speed)) * distanceTravelled;
 
-        refTop.current.style.transform = `translateX(${xTop}px)`;
-        refBottom.current.style.transform = `translateX(${xBottom}px)`;
+        marqueeTopRef.current.style.transform = `translateX(${xTop}px)`;
+        marqueeBotRef.current.style.transform = `translateX(${xBottom}px)`;
 
     });
 
     return(
         <div className="nt-nameTitle">
-            <div className="nt-nameTitle-name">
+            <div ref={nameRef} className="nt-nameTitle-name">
                 <svg viewBox="0 0 146 700" className="svg" style={svgStyles} >
                     {svgNamePaths.c}
                 </svg>
@@ -60,14 +85,14 @@ export default function NameTitle() {
                 <svg viewBox="0 0 146 700" className="svg" style={svgStyles}>
                     {svgNamePaths.e}
                 </svg>
-                <motion.div ref={refTop}
+                <motion.div ref={marqueeTopRef}
                     className={"nt-nameTitle-marquee " + blockFont.className}
                 >
                     {marquee}
                 </motion.div>
             </div>
 
-            <div className="nt-nameTitle-surname">
+            <div ref={surnameRef} className="nt-nameTitle-surname" style={{...surnameStyles}}>
                 <svg viewBox="0 0 146 700" className="svg" style={svgStyles}>
                     {svgNamePaths.o}
                 </svg>
@@ -83,7 +108,7 @@ export default function NameTitle() {
                 <svg viewBox="0 0 146 700" className="svg" style={{...svgStyles, transform: "scale(1, -1)"}}>
                     {svgNamePaths.a}
                 </svg>
-                <motion.div 
+                <motion.div ref={marqueeBotRef}
                     className={"nt-nameTitle-marquee nt-nameTitle-marquee--row " + blockFont.className}
                 >
                     {marquee}
