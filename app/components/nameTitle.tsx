@@ -24,6 +24,11 @@ export default function NameTitle() {
         const nameStyles = getComputedStyle(nameRef.current);
         const nameWidth = nameStyles.getPropertyValue('width');
 
+        if(window.innerWidth < 640) {
+            setLetterOffset(undefined);
+            return;
+        }
+        
         setLetterOffset(nameWidth);
 
         window.addEventListener('resize', (screen) => {

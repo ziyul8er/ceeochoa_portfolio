@@ -48,11 +48,13 @@
     }
 
     .nt-nameTitle-name {
-        height: 80vw;
+        height: min(80vw, 100%);
+    
         /* left: 40.5px; */
     }
 
     .nt-nameTitle-surname {
+        height: min(80vw, 100%);
         top: auto;
         /* left: 260.5px; */
     }
