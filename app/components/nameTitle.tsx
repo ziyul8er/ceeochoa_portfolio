@@ -21,18 +21,22 @@ export default function NameTitle() {
 
     useEffect(() => {
         if (!nameRef.current) return;
-
         const nameStyles = getComputedStyle(nameRef.current);
         const nameWidth = nameStyles.getPropertyValue('width');
 
         setLetterOffset(nameWidth);
-        window.addEventListener('resize', (screen) => {
 
+        window.addEventListener('resize', (screen) => {
+            if (!nameRef.current) return;
+
+            const nameStyles = getComputedStyle(nameRef.current);
+            const nameWidth = nameStyles.getPropertyValue('width');
+    
+            setLetterOffset(nameWidth);
+            
             if(window.innerWidth < 640) {
                 setLetterOffset(undefined);
                 return;
-            } else {
-                setLetterOffset(nameWidth);
             }
         });
     }, [screen, letterOffset]);
