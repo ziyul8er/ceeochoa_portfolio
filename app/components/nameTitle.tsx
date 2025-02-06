@@ -40,9 +40,6 @@ export default function NameTitle() {
         });
     }, [screen, letterOffset]);
 
-    //svgs
-    const svgStyles: CSSProperties = { overflow: "visible"};
-
     //animation
     const surnameStyles = letterOffset ? {left: letterOffset} : {};
     const speed: number = 4000;

@@ -15,11 +15,25 @@ const svgLetterPaths: svgPathsObject = {
 
 function getSvgElementsArray(letters: svgPath[]): svgPath[] {
     const finalArray: svgPath[] = [];
+    const length: number = letters.length;
+    let type: string;
+    
+    switch (length) {
+        case 3:
+            type = "name";
+            break;
+        case 5:
+            type = "surname";
+            break;
+        default:
+            type = 'id';
+    };
+
     letters.map((letterPath, index) => (
 
         finalArray.push(
             <svg key={index}
-                id={index.toString()}
+                id={type + index.toString()}
                 viewBox="0 0 146 700" 
                 className="svg"
             >

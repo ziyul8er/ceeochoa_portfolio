@@ -27,6 +27,10 @@
     overflow: hidden;
 }
 
+#surname4 {
+    transform: scale(1, -1);
+}
+
 .nt-nameTitle-marquee {
     z-index: 1;
     position: absolute;
