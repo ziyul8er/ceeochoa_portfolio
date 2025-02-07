@@ -14,6 +14,7 @@ export default function NameTitle() {
     const [surnameOffset, setSurnameOffset] = useState<string | undefined>(undefined);
     const [nameOffset, setNameOffset] = useState<string | undefined>(undefined);
     const [linksOffset, setLinksOffset] = useState<string | undefined>(undefined);
+    const [yOffset, setYOffset] = useState<string | undefined>(undefined);
     const [flexRow, setFlexRow] = useState<boolean>(false);
 
     //refs
@@ -34,9 +35,10 @@ export default function NameTitle() {
     let  marquee: string = space;
 
     //styles
-    const surnameStyles = surnameOffset ? {left: surnameOffset} : {};
-    const nameStyles = nameOffset ? {left: nameOffset} : {};
+    const surnameStyles = surnameOffset ? {left: surnameOffset, top: yOffset} : {};
+    const nameStyles = nameOffset ? {left: nameOffset, top: yOffset} : {};
     const linksStyles = linksOffset ? {top: linksOffset} : {};
+    // const yStyles = yOffset ? {top: yOffset} : {};
     const classes = `nt-marquee ${blockFont.className}`;
     const classesOut= `nt-marqueeOut ${blockFont.className}`;
     const isTopBotHidden = flexRow === true ? " nt-marquee--hidden" : "";
@@ -46,10 +48,12 @@ export default function NameTitle() {
         marquee = marquee + web + space + dev + space;
     }
 
-    function _getLetterOffset(nameRef: HTMLDivElement, surnameRef: HTMLDivElement, wrapperRef: HTMLDivElement) {
+    function _calculateOffset(nameRef: HTMLDivElement, surnameRef: HTMLDivElement, wrapperRef: HTMLDivElement){
         if(window.innerWidth < 640) {
             setNameOffset(undefined);
             setSurnameOffset(undefined);
+            setLinksOffset(undefined);
+            setYOffset(undefined);
             return;
         };
 
@@ -60,37 +64,33 @@ export default function NameTitle() {
         const nameWidth = nameStyles.getPropertyValue('width');
         const surnameWidth = surnameStyles.getPropertyValue('width');
         const wrapperWidth = wrapperStyles.getPropertyValue('width');
-        
-        const n = Number(nameWidth.slice(0, -2));
-        const s = Number(surnameWidth.slice(0, -2));
-        const w = Number(wrapperWidth.slice(0, -2));
-
-        const totalGap = w - (n + s);
-        const finalNameOffset = (totalGap / 2).toString() + "px";
-        const finalSurnameOffset = (n + totalGap / 2).toString() + "px";
-
-        setNameOffset(finalNameOffset);
-        setSurnameOffset(finalSurnameOffset);
-    }
-
-    function _getLinksOffset(nameRef: HTMLDivElement, wrapperRef: HTMLDivElement) {
-        if(window.innerWidth < 640) {
-            setLinksOffset(undefined)
-            return;
-        };
-
-        const nameStyles = getComputedStyle(nameRef);
-        const wrapperStyles = getComputedStyle(wrapperRef);
-        
         const nameHeight = nameStyles.getPropertyValue('height');
         const wrapperHeight = wrapperStyles.getPropertyValue('height');
 
-        const n = Number(nameHeight.slice(0, -2));
-        const w = Number(wrapperHeight.slice(0, -2));
-        const finalLinksOffset = n.toString() + "px";
+        
+        const nWidth = Number(nameWidth.slice(0, -2));
+        const sWidth = Number(surnameWidth.slice(0, -2));
+        const wWidth = Number(wrapperWidth.slice(0, -2));
+        const nHeight = Number(nameHeight.slice(0, -2));
+        const wHeight = Number(wrapperHeight.slice(0, -2));
 
-        setLinksOffset(finalLinksOffset);
-    }
+        //letters
+        const lettersTotalGap = wWidth - (nWidth + sWidth);
+        const lettersFinalNameOffset = (lettersTotalGap / 2).toString() + "px";
+        const lettersFinalSurnameOffset = (nWidth + lettersTotalGap / 2).toString() + "px";
+
+        setNameOffset(lettersFinalNameOffset);
+        setSurnameOffset(lettersFinalSurnameOffset);
+
+        //y
+        const y = wHeight - nHeight;
+        const n = ((y - 70) / 2).toString() + "px";
+        setYOffset(n);
+        
+        //links
+        const linksFinalOffset = (y).toString() + "px";
+        setLinksOffset(linksFinalOffset);
+    };
 
     function flexDirection() {
         if(window.innerWidth < 640) {
@@ -123,8 +123,7 @@ export default function NameTitle() {
         if (!nameTitleRef.current) return;
 
         flexDirection();
-        _getLetterOffset(nameRef.current, surnameRef.current,nameTitleRef.current);
-        _getLinksOffset(nameRef.current, nameTitleRef.current);
+        _calculateOffset(nameRef.current, surnameRef.current,nameTitleRef.current);
 
         window.addEventListener('resize', (screen) => {
             if (!nameRef.current) return;                
@@ -134,8 +133,7 @@ export default function NameTitle() {
             if (!surnameRef.current) return;
 
             flexDirection();
-            _getLetterOffset(nameRef.current, surnameRef.current,nameTitleRef.current);
-            _getLinksOffset(nameRef.current, nameTitleRef.current);
+            _calculateOffset(nameRef.current, surnameRef.current,nameTitleRef.current);
         });
     }, [screen, surnameOffset, flexRow]);
 
@@ -160,14 +158,14 @@ export default function NameTitle() {
             </div>
             <div className="u-marqueeOutWrapper">
                 <motion.div ref={marqueeOutTopRef} 
-                    style={{top: "10%"}}
+                    style={{top: "20%"}}
                     className={classesOut + isHidden}
                 >
                     {marquee}
                 </motion.div>
                 <motion.div ref={marqueeOutBotRef} 
                     className={classesOut + isHidden}
-                    style={{top: "40%"}}
+                    style={{top: "50%"}}
                 >
                     {marquee}
                 </motion.div>
