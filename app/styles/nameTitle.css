@@ -1,4 +1,5 @@
-.nt-nameTitle {
+.nt-nameTitle{
+    margin: 10px;
     height: 700px;
     width: 100%;
     position: relative;
@@ -32,32 +33,45 @@
     transform: scale(1, -1);
 }
 
-.nt-nameTitle-marquee {
+.nt-marquee {
     z-index: 1;
     position: absolute;
     display: flex;
     top: 28%;
     font-size: 100px;
     background-color: transparent;
-    background-color: pink;
     color: var(--background);
     opacity: 0.6;
 }
 
-.nt-nameTitle-marquee--hidden {
+.nt-marqueeOut {
+    z-index: 1;
+    position: absolute;
+    font-size: 100px;
+    background-color: transparent;
+    color: var(--background);
+    opacity: 0.6;
+}
+
+.nt-marquee--hidden {
     display: none;
 }
 
 .letterSvgElement {
     background-color: transparent;
-    /* mix-blend-mode: difference; */
-    
+    mix-blend-mode: difference;
+}
+
+.u-marqueeOutWrapper {
+    display: flex;
+    align-self: center;
+    justify-content: center;
 }
 
 @media screen and (min-width: 640px) {
     .nt-nameTitle {
         flex-direction: row;
-        /* justify-content: center; */
+        justify-content: center;
     }
 
     .nt-nameTitle-name {
@@ -67,10 +81,5 @@
     .nt-nameTitle-surname {
         height: min(55vw, 100%);
         top: auto;
-    }
-
-    .nt-nameTitle-marquee {
-        position: static;
-        align-self: center;
     }
 }

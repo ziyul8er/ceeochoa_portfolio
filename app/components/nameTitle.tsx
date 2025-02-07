@@ -10,18 +10,20 @@ import { motion, useAnimationFrame } from "motion/react";
 const blockFont: NextFont = localFont({ src: "../fonts/outward-block-webfont.woff2" });
 
 export default function NameTitle() {
+    //states
     const [surnameOffset, setSurnameOffset] = useState<string | undefined>(undefined);
     const [nameOffset, setNameOffset] = useState<string | undefined>(undefined);
     const [flexRow, setFlexRow] = useState<boolean>(false);
-    const [marqueeOffset, setMarqueeOffset] = useState<string | undefined>(undefined);
-    
+    //refs
     const nameTitleRef = useRef<HTMLDivElement>(null);
     const nameRef = useRef<HTMLDivElement>(null);
     const surnameRef = useRef<HTMLDivElement>(null);
-    const marqueeRef = useRef<HTMLDivElement>(null);
+    const marqueeOutTopRef = useRef<HTMLDivElement>(null);
+    const marqueeOutBotRef = useRef<HTMLDivElement>(null);
     const marqueeRefTop = useRef<HTMLDivElement>(null);
     const marqueeRefBot = useRef<HTMLDivElement>(null);
-    const speed: number = 500;
+    //animation
+    const speed: number = 1000;
     const distanceTravelled: number = 100;
     const web: string = 'WEB';
     const dev: string = 'DEVELOPER';
@@ -29,9 +31,10 @@ export default function NameTitle() {
     let  marquee: string = space;
     const surnameStyles = surnameOffset ? {left: surnameOffset} : {};
     const nameStyles = nameOffset ? {left: nameOffset} : {};
-    const classes = `nt-nameTitle-marquee ${blockFont.className}`;
-    const isTopBotHidden = flexRow === true ? " nt-nameTitle-marquee--hidden" : "";
-    const isHidden = !flexRow === true ? " nt-nameTitle-marquee--hidden" : "";
+    const classes = `nt-marquee ${blockFont.className}`;
+    const classesOut= `nt-marqueeOut ${blockFont.className}`;
+    const isTopBotHidden = flexRow === true ? " nt-marquee--hidden" : "";
+    const isHidden = !flexRow === true ? " nt-marquee--hidden" : "";
  
     for (let i = 0; i < 10; i++) {
         marquee = marquee + web + space + dev + space;
@@ -52,37 +55,16 @@ export default function NameTitle() {
         const surnameWidth = surnameStyles.getPropertyValue('width');
         const wrapperWidth = wrapperStyles.getPropertyValue('width');
         
-        console.log(wrapperWidth);
-        
-            const n = Number(nameWidth.slice(0, -2));
-            const s = Number(surnameWidth.slice(0, -2));
-            const w = Number(wrapperWidth.slice(0, -2));
+        const n = Number(nameWidth.slice(0, -2));
+        const s = Number(surnameWidth.slice(0, -2));
+        const w = Number(wrapperWidth.slice(0, -2));
 
-            const totalGap = w - (n + s);
-            const finalNameOffset = (totalGap / 2).toString() + "px";
-            const finalSurnameOffset = ((n + totalGap / 2)).toString() + "px";
+        const totalGap = w - (n + s);
+        const finalNameOffset = (totalGap / 2).toString() + "px";
+        const finalSurnameOffset = ((n + totalGap / 2)).toString() + "px";
 
-            // return ((w - (n + s))).toString() + "px";
-
-
-        
         setNameOffset(finalNameOffset);
         setSurnameOffset(finalSurnameOffset);
-    }
-
-    function _getMarqueeOffset(ref: HTMLDivElement) {
-        const marqueeStyles = getComputedStyle(ref);
-        const currentOffset = marqueeStyles.getPropertyValue('right');
-
-        const marqueeOffsetNumber = Math.abs(Number(currentOffset.slice(0, -2)) / 2);
-        const marqueeOffset = marqueeOffsetNumber.toString() + "px";
-
-        if(window.innerWidth < 640) {
-            setMarqueeOffset(undefined);
-            return;
-        }
-        // console.log(marqueeOffset);
-        setMarqueeOffset(marqueeOffset);
     }
 
     function flexDirection() {
@@ -94,14 +76,16 @@ export default function NameTitle() {
     }
 
     useAnimationFrame((t) => {
-        if (!marqueeRef.current) return;
+        if (!marqueeOutTopRef.current) return;
+        if (!marqueeOutBotRef.current) return;
         if (!marqueeRefTop.current) return;
         if (!marqueeRefBot.current) return;
 
         const x = (Math.sin(t / speed)) * distanceTravelled;
         const xBot = -(Math.sin(t / speed)) * distanceTravelled;
         
-        marqueeRef.current.style.transform = `translateX(${x}px) left:"${surnameOffset}"`;
+        marqueeOutTopRef.current.style.transform = `translateX(${x}px)`;
+        marqueeOutBotRef.current.style.transform = `translateX(${xBot}px)`;
         marqueeRefTop.current.style.transform = `translateX(${x}px)`;
         marqueeRefBot.current.style.transform = `translateX(${xBot}px)`;
     });
@@ -109,24 +93,24 @@ export default function NameTitle() {
     useEffect(() => {
         if (!nameRef.current) return;
         if (!surnameRef.current) return;
-        if (!marqueeRef.current) return;
+        if (!marqueeOutTopRef.current) return;
+        if (!marqueeOutBotRef.current) return;
         if (!nameTitleRef.current) return;
 
         flexDirection();
-        _getMarqueeOffset(marqueeRef.current);
         _getLetterOffset(nameRef.current, surnameRef.current,nameTitleRef.current);
 
         window.addEventListener('resize', (screen) => {
             if (!nameRef.current) return;                
-            if (!marqueeRef.current) return;
+            if (!marqueeOutTopRef.current) return;
+            if (!marqueeOutBotRef.current) return;
             if (!nameTitleRef.current) return;
             if (!surnameRef.current) return;
 
             flexDirection();
-            _getMarqueeOffset(marqueeRef.current);
             _getLetterOffset(nameRef.current, surnameRef.current,nameTitleRef.current);
         });
-    }, [screen, surnameOffset, flexRow, marqueeOffset]);
+    }, [screen, surnameOffset, flexRow]);
 
     return(
         <div ref={nameTitleRef} className="nt-nameTitle">
@@ -147,11 +131,20 @@ export default function NameTitle() {
                     {marquee}
                 </motion.div>
             </div>
-            <motion.div ref={marqueeRef} 
-                className={classes + isHidden}
-            >
-                {marquee}
-            </motion.div>
+            <div className="u-marqueeOutWrapper">
+                <motion.div ref={marqueeOutTopRef} 
+                    style={{top: "25%"}}
+                    className={classesOut + isHidden}
+                >
+                    {marquee}
+                </motion.div>
+                <motion.div ref={marqueeOutBotRef} 
+                    className={classesOut + isHidden}
+                    style={{top: "55%"}}
+                >
+                    {marquee}
+                </motion.div>
+            </div>
         </div>
     );
 }
