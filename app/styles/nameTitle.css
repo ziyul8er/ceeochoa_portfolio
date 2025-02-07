@@ -39,6 +39,7 @@
     top: 28%;
     font-size: 100px;
     background-color: transparent;
+    background-color: pink;
     color: var(--background);
     opacity: 0.6;
 }
@@ -47,9 +48,10 @@
     display: none;
 }
 
-.svg {
+.letterSvgElement {
     background-color: transparent;
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
+    
 }
 
 @media screen and (min-width: 640px) {

@@ -35,7 +35,7 @@ function getSvgElementsArray(letters: svgPath[]): svgPath[] {
             <svg key={index}
                 id={type + index.toString()}
                 viewBox="0 0 146 700" 
-                className="svg"
+                className="letterSvgElement"
             >
                 {letterPath}
             </svg>
