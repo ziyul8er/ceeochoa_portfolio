@@ -172,8 +172,12 @@ export default function NameTitle() {
             </div>
 
         <div className="u-linksWrapper" style={{...linksStyles}}>
-            {mailIcon}
-            {linkedInIcon}
+            <a className="nt-mailLink" href="mailto:xceeochoax@gmail.com">
+                {mailIcon}
+            </a>
+            <a className="nt-mailLink" href="http://www.linkedin.com/in/ceeochoa">
+                {linkedInIcon}
+            </a>        
         </div>
     </div>
     );
