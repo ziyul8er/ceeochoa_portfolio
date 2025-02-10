@@ -38,7 +38,6 @@ export default function NameTitle() {
     const surnameStyles = surnameOffset ? {left: surnameOffset, top: yOffset} : {};
     const nameStyles = nameOffset ? {left: nameOffset, top: yOffset} : {};
     const linksStyles = linksOffset ? {top: linksOffset} : {};
-    // const yStyles = yOffset ? {top: yOffset} : {};
     const classes = `nt-marquee ${blockFont.className}`;
     const classesOut= `nt-marqueeOut ${blockFont.className}`;
     const isTopBotHidden = flexRow === true ? " nt-marquee--hidden" : "";
@@ -125,7 +124,7 @@ export default function NameTitle() {
         flexDirection();
         _calculateOffset(nameRef.current, surnameRef.current,nameTitleRef.current);
 
-        window.addEventListener('resize', (screen) => {
+        window.addEventListener('resize', () => {
             if (!nameRef.current) return;                
             if (!marqueeOutTopRef.current) return;
             if (!marqueeOutBotRef.current) return;
@@ -135,7 +134,7 @@ export default function NameTitle() {
             flexDirection();
             _calculateOffset(nameRef.current, surnameRef.current,nameTitleRef.current);
         });
-    }, [screen, surnameOffset, flexRow]);
+    }, [surnameOffset, flexRow]);
 
     return(
         <div ref={nameTitleRef} className="nt-nameTitle">
