@@ -172,12 +172,20 @@ export default function NameTitle() {
             </div>
 
         <div className="u-linksWrapper" style={{...linksStyles}}>
-            <a className="nt-mailLink" href="mailto:xceeochoax@gmail.com">
+            <motion.a className="nt-mailLink"
+                href="mailto:xceeochoax@gmail.com"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
+            >
                 {mailIcon}
-            </a>
-            <a className="nt-mailLink" href="http://www.linkedin.com/in/ceeochoa">
+            </motion.a>
+            <motion.a className="nt-mailLink" 
+                href="http://www.linkedin.com/in/ceeochoa"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}    
+            >
                 {linkedInIcon}
-            </a>        
+            </motion.a>        
         </div>
     </div>
     );
