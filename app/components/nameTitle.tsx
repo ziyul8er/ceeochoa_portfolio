@@ -164,7 +164,7 @@ export default function NameTitle() {
                 </motion.div>
                 <motion.div ref={marqueeOutBotRef} 
                     className={classesOut + isHidden}
-                    style={{top: "50%"}}
+                    style={{top: "60%"}}
                 >
                     {marquee}
                 </motion.div>
