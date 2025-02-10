@@ -27,7 +27,7 @@ export default function NameTitle() {
     const marqueeRefBot = useRef<HTMLDivElement>(null);
 
     //animation variables
-    const speed: number = 1000;
+    const speed: number = 2000;
     const distanceTravelled: number = 100;
     const web: string = 'WEB';
     const dev: string = 'DEVELOPER';
