@@ -18,13 +18,7 @@ const blockFont: NextFont = localFont({
 
 export default function NameTitle() {
   //states
-  const [surnameOffset, setSurnameOffset] = useState<string | undefined>(
-    undefined
-  );
-  const [nameOffset, setNameOffset] = useState<string | undefined>(undefined);
-  const [linksOffset, setLinksOffset] = useState<string | undefined>(undefined);
-  const [yOffset, setYOffset] = useState<string | undefined>(undefined);
-  const [flexRow, setFlexRow] = useState<boolean>(false);
+  const [isDisplayRow, setDisplaydirection] = useState<boolean>(false);
 
   //refs
   const nameTitleRef = useRef<HTMLDivElement>(null);
@@ -41,74 +35,21 @@ export default function NameTitle() {
   let marquee: string = "·";
 
   //styles
-  const surnameStyles = surnameOffset
-    ? { left: surnameOffset, top: yOffset }
-    : {};
-  const nameStyles = nameOffset ? { left: nameOffset, top: yOffset } : {};
-  const linksStyles = linksOffset ? { top: linksOffset } : {};
-  const classes = `nt-marquee ${blockFont.className}`;
-  const classesOut = `nt-marqueeOut ${blockFont.className}`;
-  const isTopBotHidden = flexRow === true ? " nt-marquee--hidden" : "";
-  const isHidden = !flexRow === true ? " nt-marquee--hidden" : "";
+  const marqueeClasses = `nt-marquee ${blockFont.className}`;
+  const marqueeClassesOut = `${blockFont.className} nt-marqueeOut`;
+  const isTopBotHidden = isDisplayRow === true ? " nt-marquee--hidden" : "";
+  const isHidden = !isDisplayRow === true ? " nt-marquee--hidden" : "";
 
   for (let i = 0; i < 10; i++) {
     marquee += "WEB" + "·" + "DEVELOPER" + "·";
   }
 
-  function _calculateOffset(
-    nameRef: HTMLDivElement,
-    surnameRef: HTMLDivElement,
-    wrapperRef: HTMLDivElement
-  ) {
-    if (window.innerWidth < 640) {
-      setNameOffset(undefined);
-      setSurnameOffset(undefined);
-      setLinksOffset(undefined);
-      setYOffset(undefined);
-      return;
-    }
-
-    const nameStyles = getComputedStyle(nameRef);
-    const surnameStyles = getComputedStyle(surnameRef);
-    const wrapperStyles = getComputedStyle(wrapperRef);
-
-    const nameWidth = nameStyles.getPropertyValue("width");
-    const surnameWidth = surnameStyles.getPropertyValue("width");
-    const wrapperWidth = wrapperStyles.getPropertyValue("width");
-    const nameHeight = nameStyles.getPropertyValue("height");
-    const wrapperHeight = wrapperStyles.getPropertyValue("height");
-
-    const nWidth = Number(nameWidth.slice(0, -2));
-    const sWidth = Number(surnameWidth.slice(0, -2));
-    const wWidth = Number(wrapperWidth.slice(0, -2));
-    const nHeight = Number(nameHeight.slice(0, -2));
-    const wHeight = Number(wrapperHeight.slice(0, -2));
-
-    //letters
-    const lettersTotalGap = wWidth - (nWidth + sWidth);
-    const lettersFinalNameOffset = (lettersTotalGap / 2).toString() + "px";
-    const lettersFinalSurnameOffset =
-      (nWidth + lettersTotalGap / 2).toString() + "px";
-
-    setNameOffset(lettersFinalNameOffset);
-    setSurnameOffset(lettersFinalSurnameOffset);
-
-    //y
-    const y = wHeight - nHeight;
-    const n = ((y - 70) / 2).toString() + "px";
-    setYOffset(n);
-
-    //links
-    const linksFinalOffset = y.toString() + "px";
-    setLinksOffset(linksFinalOffset);
-  }
-
   function flexDirection() {
-    if (window.innerWidth < 640) {
-      setFlexRow(false);
+    if (window.innerWidth < 768) {
+      setDisplaydirection(false);
       return;
     }
-    setFlexRow(true);
+    setDisplaydirection(true);
   }
 
   useAnimationFrame((t) => {
@@ -134,7 +75,6 @@ export default function NameTitle() {
     if (!nameTitleRef.current) return;
 
     flexDirection();
-    _calculateOffset(nameRef.current, surnameRef.current, nameTitleRef.current);
 
     window.addEventListener("resize", () => {
       if (!nameRef.current) return;
@@ -144,41 +84,40 @@ export default function NameTitle() {
       if (!surnameRef.current) return;
 
       flexDirection();
-      _calculateOffset(
-        nameRef.current,
-        surnameRef.current,
-        nameTitleRef.current
-      );
     });
-  }, [surnameOffset, flexRow]);
+  }, [isDisplayRow]);
 
   return (
     <div ref={nameTitleRef} className="nt-nameTitle">
       <div ref={nameRef} className="nt-nameTitle-name" style={{}}>
         {nameSvgArray.map((el) => el)}
-        <motion.div ref={marqueeRefTop} className={classes + isTopBotHidden}>
+        <motion.div
+          ref={marqueeRefTop}
+          className={marqueeClasses + isTopBotHidden}
+        >
           {marquee}
         </motion.div>
       </div>
 
       <div ref={surnameRef} className="nt-nameTitle-surname" style={{}}>
         {surnameSvgArray.map((el) => el)}
-        <motion.div ref={marqueeRefBot} className={classes + isTopBotHidden}>
+        <motion.div
+          ref={marqueeRefBot}
+          className={marqueeClasses + isTopBotHidden}
+        >
           {marquee}
         </motion.div>
       </div>
       <div className="u-marqueeOutWrapper">
         <motion.div
           ref={marqueeOutTopRef}
-          style={{ top: "20%" }}
-          className={classesOut + isHidden}
+          className={marqueeClassesOut + "--top" + isHidden}
         >
           {marquee}
         </motion.div>
         <motion.div
           ref={marqueeOutBotRef}
-          className={classesOut + isHidden}
-          style={{ top: "60%" }}
+          className={marqueeClassesOut + "--bot" + isHidden}
         >
           {marquee}
         </motion.div>

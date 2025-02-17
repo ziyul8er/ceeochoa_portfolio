@@ -17,7 +17,9 @@
 body {
   height: 95vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: #ededed;
-  background: #181A1B;
+  background: #181a1b;
   font-family: Arial, Helvetica, sans-serif;
 }
