@@ -1,112 +1,140 @@
-.nt-nameTitle{
-    margin: 10px;
-    height: 700px;
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    background-color: #181A1B;
-    overflow: hidden;
+.nt-nameTitle {
+  height: 700px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  background-color: #181a1b;
+  overflow: hidden;
 }
 
-.nt-nameTitle-name {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    height: 325px;
-    position: absolute;
-    overflow: hidden;
+.nt-nameTitle-name,
+.nt-nameTitle-surname {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  height: 300px;
+  /* position: absolute; */
+  overflow: hidden;
 }
 
 .nt-nameTitle-surname {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    height: 325px;
-    position: absolute;
-    top: 325px;
-    overflow: hidden;
-}
-
-#surname4 {
-    transform: scale(1, -1);
-}
-
-.nt-marquee {
-    z-index: 1;
-    position: absolute;
-    display: flex;
-    top: 28%;
-    font-size: 100px;
-    background-color: transparent;
-    color: #181A1B;
-    opacity: 0.6;
-}
-
-.nt-marqueeOut {
-    z-index: 1;
-    position: absolute;
-    font-size: 100px;
-    background-color: transparent;
-    color: #181A1B;
-    opacity: 0.65;
-}
-
-.nt-marquee--hidden {
-    display: none;
+  top: 302px;
 }
 
 .letterSvgElement {
-    background-color: transparent;
-    mix-blend-mode: difference;
+  height: 300px;
+  width: 63px;
+  background-color: transparent;
+  mix-blend-mode: difference;
+}
+
+#surname4 {
+  transform: scale(1, -1);
+}
+
+.nt-marquee {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  top: 28%;
+  font-size: 100px;
+  background-color: transparent;
+  color: #181a1b;
+  opacity: 0.6;
+}
+
+.nt-marqueeOut {
+  z-index: 1;
+  position: absolute;
+  font-size: 100px;
+  background-color: transparent;
+  color: #181a1b;
+  opacity: 0.65;
+}
+
+.nt-marquee--hidden {
+  display: none;
 }
 
 .u-marqueeOutWrapper {
-    display: flex;
-    align-self: center;
-    justify-content: center;
+  display: flex;
+  align-self: center;
+  justify-content: center;
 }
 
-.u-linksWrapper{
-    height: 50px;
-    position: absolute;
-    display: flex;
-    align-self: center;
-    justify-content: space-around;
-    top: 650px;
+.u-linksWrapper {
+  height: 50px;
+  position: absolute;
+  display: flex;
+  align-self: center;
+  justify-content: space-around;
+  top: 650px;
 }
 
-.nt-mailLink{
-    height: 50px;
-    width: 50px;
-    color: white;
+.nt-mailLink {
+  height: 50px;
+  width: 50px;
+  color: white;
 }
 
 @media screen and (min-width: 640px) {
-    .nt-nameTitle{
-        flex-direction: row;
-        justify-content: center;
-    }
+}
 
-    .nt-nameTitle-name, .nt-nameTitle-surname{
-        align-self: flex-start;
-        height: min(55vw, 90%);
-    }
+@media screen and (min-width: 768px) {
+  .nt-nameTitle {
+    flex-direction: row;
+  }
 
-    .nt-nameTitle-surname{
-        top: unset;
-    }
+  .nt-nameTitle-name,
+  .nt-nameTitle-surname {
+    height: 400;
+    position: static;
+  }
 
-    .u-linksWrapper{
-        position: static;
-        align-self: flex-end;
-        height: min(10%, 100px);
-        width: min(30%, 1000px);
-    }
+  .nt-nameTitle-name {
+    align-self: start;
+  }
+  .nt-nameTitle-surname {
+    align-self: flex-end;
+  }
 
-    .nt-mailLink{
-        height: 70px;
-        width: 70px;
-    }
+  .letterSvgElement {
+    height: 400px;
+    width: 84px;
+  }
+
+  .u-linksWrapper {
+    position: static;
+    align-self: flex-end;
+    height: min(10%, 100px);
+    width: min(30%, 1000px);
+  }
+
+  .nt-mailLink {
+    height: 70px;
+    width: 70px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .letterSvgElement {
+    /* height: 390px;
+        width: 81.9px;   */
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .letterSvgElement {
+    /* height: 390px;
+        width: 81.9px;   */
+  }
+}
+
+@media screen and (min-width: 1536px) {
+  .letterSvgElement {
+    /* height: 390px;
+        width: 81.9px;   */
+  }
 }
