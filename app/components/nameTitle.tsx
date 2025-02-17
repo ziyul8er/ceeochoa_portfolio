@@ -2,12 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import localFont from "next/font/local";
 import { NextFont } from "next/dist/compiled/@next/font";
-import {
-  nameSvgArray,
-  surnameSvgArray,
-  mailIcon,
-  linkedInIcon,
-} from "../variables/svgPaths";
+import { nameSvgArray, surnameSvgArray } from "../variables/svgPaths";
 import "../styles/nameTitle.css";
 import "../global.css";
 import { motion, useAnimationFrame } from "motion/react";
@@ -40,11 +35,11 @@ export default function NameTitle() {
   const isTopBotHidden = isDisplayRow === true ? " nt-marquee--hidden" : "";
   const isHidden = !isDisplayRow === true ? " nt-marquee--hidden" : "";
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 20; i++) {
     marquee += "WEB" + "·" + "DEVELOPER" + "·";
   }
 
-  function flexDirection() {
+  function _checkDisplayDirection() {
     if (window.innerWidth < 768) {
       setDisplaydirection(false);
       return;
@@ -74,7 +69,7 @@ export default function NameTitle() {
     if (!marqueeOutBotRef.current) return;
     if (!nameTitleRef.current) return;
 
-    flexDirection();
+    _checkDisplayDirection();
 
     window.addEventListener("resize", () => {
       if (!nameRef.current) return;
@@ -83,7 +78,7 @@ export default function NameTitle() {
       if (!nameTitleRef.current) return;
       if (!surnameRef.current) return;
 
-      flexDirection();
+      _checkDisplayDirection();
     });
   }, [isDisplayRow]);
 
