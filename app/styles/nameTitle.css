@@ -1,5 +1,15 @@
+.nt-nameTitle,
+.nt-nameTitle-name,
+.nt-nameTitle-surname,
+.u-linksWrapper,
+.nt-mailLink,
+.nt-marqueeOut--bot,
+.nt-marqueeOut--top .letterSvgElement {
+  transition: 0.5s;
+}
+
 .nt-nameTitle {
-  height: 600px;
+  height: 500px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -8,18 +18,22 @@
 }
 
 .nt-nameTitle-name,
+.nt-nameTitle-surname,
+.letterSvgElement {
+  height: 250px;
+}
+
+.nt-nameTitle-name,
 .nt-nameTitle-surname {
   position: relative;
   display: flex;
   justify-content: center;
   align-self: center;
-  height: 300px;
   overflow: hidden;
 }
 
 .letterSvgElement {
-  height: 300px;
-  width: 63px;
+  width: 52.5px;
   background-color: transparent;
   mix-blend-mode: difference;
 }
@@ -80,6 +94,7 @@
   .letterSvgElement {
     height: 400px;
   }
+
   .nt-nameTitle {
     flex-direction: row;
     justify-content: center;
