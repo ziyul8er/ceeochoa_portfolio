@@ -29,10 +29,7 @@ export default function NameTitle() {
     //animation variables
     const speed: number = 2000;
     const distanceTravelled: number = 100;
-    const web: string = 'WEB';
-    const dev: string = 'DEVELOPER';
-    const space: string = '·';
-    let  marquee: string = space;
+    let  marquee: string = '·';
 
     //styles
     const surnameStyles = surnameOffset ? {left: surnameOffset, top: yOffset} : {};
@@ -44,7 +41,7 @@ export default function NameTitle() {
     const isHidden = !flexRow === true ? " nt-marquee--hidden" : "";
  
     for (let i = 0; i < 10; i++) {
-        marquee = marquee + web + space + dev + space;
+        marquee += 'WEB' + '·' + 'DEVELOPER' + '·';
     }
 
     function _calculateOffset(nameRef: HTMLDivElement, surnameRef: HTMLDivElement, wrapperRef: HTMLDivElement){
