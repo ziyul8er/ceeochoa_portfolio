@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import '../styles/name.css';
+import '../styles/devName.css';
 import {
 	cChunkLetter,
 	eChunkLetter,
@@ -17,7 +17,7 @@ import {
 	periodCenteredChunkLetter
 } from '../variables/svgPaths';
 
-export function Name() {
+export function DeveloperName() {
 	function createSVGElement(path: React.JSX.Element, viewBox: number) {
 		return (
 			<>

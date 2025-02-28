@@ -1,8 +1,9 @@
 .name-title {
 	display: flex;
 	flex-direction: column;
-	height: 200px;
-	width: 90vw;
+	height: 170px;
+	width: inherit;
+	margin: 10px;
 }
 
 .name-title__dev-name,
@@ -38,14 +39,14 @@
 	outline-style: none;
 	path {
 		fill: transparent;
-		stroke: red;
+		stroke: #ff0000;
 		stroke-width: 30;
 	}
 }
 
 .name-title__dev-name .character,
 .name-title__dev-surname .character {
-	margin-left: 58px;
+	margin-left: 50px;
 }
 
 .name-title__dev-name .character:first-child,
@@ -74,6 +75,18 @@
 	margin-left: 8px;
 }
 
+.name-title__job-title .character:nth-child(8) {
+	margin-left: 25px;
+}
+
+.name-title__job-title .character:nth-child(10) {
+	margin-left: 18px;
+}
+
+.name-title__job-title .character:nth-child(11) {
+	margin-left: 22px;
+}
+
 .name-title__job-title .character__solid-letter {
 	z-index: 0;
 	top: 3px;
@@ -86,5 +99,22 @@
 	left: 0;
 	path {
 		fill: var(--background);
+		stroke-width: 50;
+	}
+}
+
+.icon {
+	position: relative;
+	svg {
+		position: absolute;
+		height: 50px;
+	}
+
+	svg:nth-child(2) {
+		z-index: -1;
+		top: 3px;
+		left: 5px;
+		fill: transparent;
+		stroke: #ff0000;
 	}
 }

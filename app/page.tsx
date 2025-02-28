@@ -1,13 +1,14 @@
 import React from 'react';
-import { Name } from './components/name';
+import { DeveloperName } from './components/devName';
 import Links from './components/links';
 
 export default function Home() {
 	return (
 		<>
-			<Name />
-			{/* <NameTitle /> */}
-			<Links />
+			<div className="main-title">
+				<DeveloperName />
+				<Links />
+			</div>
 		</>
 	);
 }
