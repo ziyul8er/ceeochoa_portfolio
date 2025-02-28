@@ -18,25 +18,23 @@ import {
 } from '../variables/svgPaths';
 
 export function Name() {
-	function createSVGElement(
-		path: React.JSX.Element,
-		viewBox: number,
-		reverse?: boolean
-	) {
+	function createSVGElement(path: React.JSX.Element, viewBox: number) {
 		return (
 			<>
-				<svg
-					className={reverse ? 'outline' : 'letter'}
-					viewBox={`0 0 ${viewBox} 1000`}
-				>
-					{path}
-				</svg>
-				<svg
-					className={reverse ? 'letter' : 'outline'}
-					viewBox={`0 0 ${viewBox} 1000`}
-				>
-					{path}
-				</svg>
+				<div className="character">
+					<svg
+						className="character__solid-letter"
+						viewBox={`0 0 ${viewBox} 1000`}
+					>
+						{path}
+					</svg>
+					<svg
+						className="character__outline-letter"
+						viewBox={`0 0 ${viewBox} 1000`}
+					>
+						{path}
+					</svg>
+				</div>
 			</>
 		);
 	}
@@ -56,33 +54,33 @@ export function Name() {
 	const periodCentered = createSVGElement(periodCenteredChunkLetter, 268);
 
 	return (
-		<div className="nameWrapper">
-			<div className="devName">
-				<div className="letterWrapper">{cLetter}</div>
-				<div className="letterWrapper">{eLetter}</div>
-				<div className="letterWrapper">{eLetter}</div>
+		<div className="name-title">
+			<div className="name-title__dev-name">
+				{cLetter}
+				{eLetter}
+				{eLetter}
 			</div>
-			<div className="devSurname">
-				<div className="letterWrapper">{oLetter}</div>
-				<div className="letterWrapper">{cLetter}</div>
-				<div className="letterWrapper">{hLetter}</div>
-				<div className="letterWrapper">{oLetter}</div>
-				<div className="letterWrapper">{aLetter}</div>
+			<div className="name-title__dev-surname">
+				{oLetter}
+				{cLetter}
+				{hLetter}
+				{oLetter}
+				{aLetter}
 			</div>
-			<div className="jobTitle">
-				<div className="letterWrapper">{wLetter}</div>
-				<div className="letterWrapper">{eLetter}</div>
-				<div className="letterWrapper">{bLetter}</div>
-				<div className="letterWrapper">{periodCentered}</div>
-				<div className="letterWrapper">{dLetter}</div>
-				<div className="letterWrapper">{eLetter}</div>
-				<div className="letterWrapper">{vLetter}</div>
-				<div className="letterWrapper">{eLetter}</div>
-				<div className="letterWrapper">{lLetter}</div>
-				<div className="letterWrapper">{oLetter}</div>
-				<div className="letterWrapper">{pLetter}</div>
-				<div className="letterWrapper">{eLetter}</div>
-				<div className="letterWrapper">{rLetter}</div>
+			<div className="name-title__job-title">
+				{wLetter}
+				{eLetter}
+				{bLetter}
+				{periodCentered}
+				{dLetter}
+				{eLetter}
+				{vLetter}
+				{eLetter}
+				{lLetter}
+				{oLetter}
+				{pLetter}
+				{eLetter}
+				{rLetter}
 			</div>
 		</div>
 	);

@@ -1,24 +1,27 @@
-.nameWrapper {
+.name-title {
 	display: flex;
 	flex-direction: column;
-	height: 250px;
+	height: 200px;
 	width: 90vw;
 }
 
-.devName,
-.devSurname,
-.jobTitle {
+.name-title__dev-name,
+.name-title__dev-surname,
+.name-title__job-title {
 	height: 100%;
 	display: flex;
 }
 
-.letterWrapper {
-	margin-left: 90px;
+.character {
 	position: relative;
 	height: 100%;
 }
 
-.letter {
+.character:first-child {
+	margin-left: 0;
+}
+
+.character__solid-letter {
 	z-index: 1;
 	position: absolute;
 	height: 100%;
@@ -27,7 +30,7 @@
 	}
 }
 
-.outline {
+.character__outline-letter {
 	position: absolute;
 	height: 100%;
 	top: 5px;
@@ -40,21 +43,44 @@
 	}
 }
 
-.jobTitle {
+.name-title__dev-name .character,
+.name-title__dev-surname .character {
+	margin-left: 58px;
+}
+
+.name-title__dev-name .character:first-child,
+.name-title__dev-surname .character:first-child {
+	margin-left: 0;
+}
+
+.name-title__job-title {
 	position: relative;
+	height: 70px;
 }
 
-.jobTitle .letterWrapper {
-	margin-left: 60px;
+.name-title__job-title .character {
+	margin-left: 20px;
 }
 
-.jobTitle .letter {
+.name-title__job-title .character:first-child {
+	margin-left: 0;
+}
+
+.name-title__job-title .character:nth-child(2) {
+	margin-left: 32px;
+}
+
+.name-title__job-title .character:nth-child(5) {
+	margin-left: 8px;
+}
+
+.name-title__job-title .character__solid-letter {
 	z-index: 0;
-	top: 5px;
-	left: 10px;
+	top: 3px;
+	left: 5px;
 }
 
-.jobTitle .outline {
+.name-title__job-title .character__outline-letter {
 	z-index: 1;
 	top: 0;
 	left: 0;
