@@ -73,20 +73,6 @@
 	justify-content: center;
 }
 
-.u-linksWrapper {
-	margin-top: 5px;
-	height: 50px;
-	display: flex;
-	align-self: center;
-	justify-content: space-around;
-}
-
-.nt-mailLink {
-	height: 50px;
-	width: 50px;
-	color: white;
-}
-
 @media screen and (min-width: 768px) {
 	.nt-nameTitle,
 	.nt-nameTitle-name,
@@ -113,15 +99,6 @@
 	}
 	.nt-marqueeOut--bot {
 		top: 51%;
-	}
-	.u-linksWrapper {
-		justify-content: center;
-		height: 70px;
-	}
-
-	.nt-mailLink {
-		height: 70px;
-		width: 70px;
 	}
 }
 
