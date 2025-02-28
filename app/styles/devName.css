@@ -1,9 +1,9 @@
 .name-title {
 	display: flex;
 	flex-direction: column;
-	height: 170px;
+	height: 340px;
 	width: inherit;
-	margin: 10px;
+	margin: 8px;
 }
 
 .name-title__dev-name,
@@ -11,6 +11,21 @@
 .name-title__job-title {
 	height: 100%;
 	display: flex;
+}
+
+.name-title__dev-name {
+	margin-top: 50px;
+}
+
+.name-title__dev-name,
+.name-title__dev-surname {
+	height: 80px;
+}
+
+.name-title__job-title {
+	margin-top: 20px;
+	position: relative;
+	height: 30px;
 }
 
 .character {
@@ -22,7 +37,7 @@
 	margin-left: 0;
 }
 
-.character__solid-letter {
+.character--solid {
 	z-index: 1;
 	position: absolute;
 	height: 100%;
@@ -31,7 +46,7 @@
 	}
 }
 
-.character__outline-letter {
+.character--outline {
 	position: absolute;
 	height: 100%;
 	top: 5px;
@@ -46,17 +61,12 @@
 
 .name-title__dev-name .character,
 .name-title__dev-surname .character {
-	margin-left: 50px;
+	margin-left: 54px;
 }
 
 .name-title__dev-name .character:first-child,
 .name-title__dev-surname .character:first-child {
 	margin-left: 0;
-}
-
-.name-title__job-title {
-	position: relative;
-	height: 70px;
 }
 
 .name-title__job-title .character {
@@ -87,34 +97,18 @@
 	margin-left: 22px;
 }
 
-.name-title__job-title .character__solid-letter {
+.name-title__job-title .character--solid {
 	z-index: 0;
 	top: 3px;
 	left: 5px;
 }
 
-.name-title__job-title .character__outline-letter {
+.name-title__job-title .character--outline {
 	z-index: 1;
 	top: 0;
 	left: 0;
 	path {
 		fill: var(--background);
 		stroke-width: 50;
-	}
-}
-
-.icon {
-	position: relative;
-	svg {
-		position: absolute;
-		height: 50px;
-	}
-
-	svg:nth-child(2) {
-		z-index: -1;
-		top: 3px;
-		left: 5px;
-		fill: transparent;
-		stroke: #ff0000;
 	}
 }

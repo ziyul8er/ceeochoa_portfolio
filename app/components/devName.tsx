@@ -23,13 +23,13 @@ export function DeveloperName() {
 			<>
 				<div className="character">
 					<svg
-						className="character__solid-letter"
+						className="character--solid"
 						viewBox={`0 0 ${viewBox} 1000`}
 					>
 						{path}
 					</svg>
 					<svg
-						className="character__outline-letter"
+						className="character--outline"
 						viewBox={`0 0 ${viewBox} 1000`}
 					>
 						{path}
