@@ -1,0 +1,64 @@
+.nameWrapper {
+	display: flex;
+	flex-direction: column;
+	height: 250px;
+	width: 90vw;
+}
+
+.devName,
+.devSurname,
+.jobTitle {
+	height: 100%;
+	display: flex;
+}
+
+.letterWrapper {
+	margin-left: 90px;
+	position: relative;
+	height: 100%;
+}
+
+.letter {
+	z-index: 1;
+	position: absolute;
+	height: 100%;
+	path {
+		fill: white;
+	}
+}
+
+.outline {
+	position: absolute;
+	height: 100%;
+	top: 5px;
+	left: 10px;
+	outline-style: none;
+	path {
+		fill: transparent;
+		stroke: red;
+		stroke-width: 30;
+	}
+}
+
+.jobTitle {
+	position: relative;
+}
+
+.jobTitle .letterWrapper {
+	margin-left: 60px;
+}
+
+.jobTitle .letter {
+	z-index: 0;
+	top: 5px;
+	left: 10px;
+}
+
+.jobTitle .outline {
+	z-index: 1;
+	top: 0;
+	left: 0;
+	path {
+		fill: var(--background);
+	}
+}
