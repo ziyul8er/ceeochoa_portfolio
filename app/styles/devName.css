@@ -1,9 +1,8 @@
 .name-title {
 	display: flex;
 	flex-direction: column;
-	height: 340px;
 	width: inherit;
-	margin: 8px;
+	margin: 8px 8px 8px 20px;
 }
 
 .name-title__dev-name,

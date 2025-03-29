@@ -1,6 +1,5 @@
 import React from 'react';
 import { DeveloperName } from './components/devName';
-import Links from './components/links';
 import localFont from 'next/font/local';
 import { NextFont } from 'next/dist/compiled/@next/font';
 
@@ -15,10 +14,16 @@ export default function Home() {
 				<DeveloperName />
 				<div className={ibmFont.className + ' intro'}>
 					Hey I’m Cee. I am a Web Developer, scientist at heart and
-					passionate about gradening. Currently living and working in{' '}
-					<span>Caracas</span> Naarm (Melborune).
+					passionate about gardening. Currently living and working in{' '}
+					<s>Caracas</s> <s>Oxford</s> Naarm (Melborune).
 				</div>
-				{/* <Links /> */}
+
+				<div className={ibmFont.className + ' home-links'}>
+					<a>>_About</a>
+					<a>>_Email</a>
+					<a>>_GitHub</a>
+					<a>>_LinkedIn</a>
+				</div>
 			</div>
 		</>
 	);

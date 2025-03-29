@@ -24,7 +24,6 @@ body {
 .main-title {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	border: solid red;
 	border-radius: 15px;
 	margin: 25px;
@@ -32,5 +31,28 @@ body {
 }
 
 .intro {
+	margin: 20px;
+	font-size: 15px;
+}
+
+.home-links {
 	display: flex;
+	flex-direction: column;
+	align-self: center;
+	font-size: 25px;
+	margin-top: 50px;
+}
+
+.home-links a {
+	margin-top: 10px;
+}
+
+.home-links:first-child {
+	margin-top: 0px;
+}
+
+.home-links a:hover {
+	color: white;
+	text-shadow: red 2px 2px;
+	cursor: pointer;
 }
