@@ -30,3 +30,7 @@ body {
 	margin: 25px;
 	height: 80vh;
 }
+
+.intro {
+	display: flex;
+}
