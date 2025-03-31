@@ -16,29 +16,9 @@ import {
 	lChunkLetter,
 	periodCenteredChunkLetter
 } from '../variables/svgPaths';
+import createSVGElement from '../variables/svgPaths';
 
 export default function DeveloperName() {
-	function createSVGElement(path: React.JSX.Element, viewBox: number) {
-		return (
-			<>
-				<div className="character">
-					<svg
-						className="character--solid"
-						viewBox={`0 0 ${viewBox} 1000`}
-					>
-						{path}
-					</svg>
-					<svg
-						className="character--outline"
-						viewBox={`0 0 ${viewBox} 1000`}
-					>
-						{path}
-					</svg>
-				</div>
-			</>
-		);
-	}
-
 	const cLetter = createSVGElement(cChunkLetter, 696);
 	const eLetter = createSVGElement(eChunkLetter, 663);
 	const hLetter = createSVGElement(hChunkLetter, 778);
@@ -54,20 +34,20 @@ export default function DeveloperName() {
 	const periodCentered = createSVGElement(periodCenteredChunkLetter, 268);
 
 	return (
-		<div className="name-title">
-			<div className="name-title__dev-name">
+		<div className="main-heading">
+			<div className="main-heading__name">
 				{cLetter}
 				{eLetter}
 				{eLetter}
 			</div>
-			<div className="name-title__dev-surname">
+			<div className="main-heading__surname">
 				{oLetter}
 				{cLetter}
 				{hLetter}
 				{oLetter}
 				{aLetter}
 			</div>
-			<div className="name-title__job-title">
+			<div className="main-heading__job-title">
 				{wLetter}
 				{eLetter}
 				{bLetter}

@@ -1,28 +1,28 @@
-.name-title {
+.main-heading {
 	display: flex;
 	flex-direction: column;
 	width: inherit;
 	margin: 8px 8px 8px 20px;
 }
 
-.name-title__dev-name,
-.name-title__dev-surname,
-.name-title__job-title {
+.main-heading__name,
+.main-heading__surname,
+.main-heading__job-title {
 	height: 100%;
 	display: flex;
 }
 
-.name-title__dev-name {
+.main-heading__name {
 	margin-top: 20px;
 	align-self: flex-start;
 }
 
-.name-title__dev-name,
-.name-title__dev-surname {
+.main-heading__name,
+.main-heading__surname {
 	height: 50px;
 }
 
-.name-title__job-title {
+.main-heading__job-title {
 	position: relative;
 	height: 30px;
 	margin-top: 15px;
@@ -59,52 +59,52 @@
 	}
 }
 
-.name-title__dev-name .character,
-.name-title__dev-surname .character {
+.main-heading__name .character,
+.main-heading__surname .character {
 	margin-left: 37px;
 }
 
-.name-title__dev-name .character:first-child,
-.name-title__dev-surname .character:first-child {
+.main-heading__name .character:first-child,
+.main-heading__surname .character:first-child {
 	margin-left: 0;
 }
 
-.name-title__job-title .character {
+.main-heading__job-title .character {
 	height: 25px;
 	margin-left: 18px;
 }
 
-.name-title__job-title .character:first-child {
+.main-heading__job-title .character:first-child {
 	margin-left: 0;
 }
 
-.name-title__job-title .character:nth-child(2) {
+.main-heading__job-title .character:nth-child(2) {
 	margin-left: 27px;
 }
 
-.name-title__job-title .character:nth-child(5) {
+.main-heading__job-title .character:nth-child(5) {
 	margin-left: 7px;
 }
 
-.name-title__job-title .character:nth-child(8) {
+.main-heading__job-title .character:nth-child(8) {
 	margin-left: 21px;
 }
 
-.name-title__job-title .character:nth-child(10) {
+.main-heading__job-title .character:nth-child(10) {
 	margin-left: 16px;
 }
 
-.name-title__job-title .character:nth-child(11) {
+.main-heading__job-title .character:nth-child(11) {
 	margin-left: 20px;
 }
 
-.name-title__job-title .character--solid {
+.main-heading__job-title .character--solid {
 	z-index: 0;
 	top: 2px;
 	left: 3px;
 }
 
-.name-title__job-title .character--outline {
+.main-heading__job-title .character--outline {
 	z-index: 1;
 	top: 0;
 	left: 0;

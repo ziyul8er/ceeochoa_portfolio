@@ -1,5 +1,5 @@
 import React from 'react';
-import { DeveloperName } from './components/devName';
+import DeveloperName from './components/devName';
 import localFont from 'next/font/local';
 import { NextFont } from 'next/dist/compiled/@next/font';
 
