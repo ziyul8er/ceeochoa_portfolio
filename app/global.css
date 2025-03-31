@@ -36,3 +36,34 @@ body {
 	width: inherit;
 	margin: 8px 8px 8px 20px;
 }
+
+.character {
+	position: relative;
+	height: 50px;
+}
+
+.character:first-child {
+	margin-left: 0;
+}
+
+.character--solid {
+	z-index: 1;
+	position: absolute;
+	height: 100%;
+	path {
+		fill: white;
+	}
+}
+
+.character--outline {
+	position: absolute;
+	height: 100%;
+	top: 3px;
+	left: 6px;
+	outline-style: none;
+	path {
+		fill: transparent;
+		stroke: #ff0000;
+		stroke-width: 30;
+	}
+}

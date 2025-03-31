@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import '../styles/devName.css';
+import '../styles/about.css';
 import createSVGElement, {
 	aChunkLetter,
 	bChunkLetter,
@@ -17,6 +17,7 @@ export default function About() {
 	const tLetter = createSVGElement(tChunkLetter, 833);
 
 	return (
+		// deberia poner una flecha para ir para atras
 		<div className="window">
 			<div className="main-heading">
 				<div className="main-heading__about">

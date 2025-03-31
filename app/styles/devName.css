@@ -1,7 +1,9 @@
 .main-heading__name,
 .main-heading__surname,
 .main-heading__job-title {
+	/* maybe i can delete this one */
 	height: 100%;
+
 	display: flex;
 }
 
@@ -19,37 +21,6 @@
 	position: relative;
 	height: 30px;
 	margin-top: 15px;
-}
-
-.character {
-	position: relative;
-	height: 50px;
-}
-
-.character:first-child {
-	margin-left: 0;
-}
-
-.character--solid {
-	z-index: 1;
-	position: absolute;
-	height: 100%;
-	path {
-		fill: white;
-	}
-}
-
-.character--outline {
-	position: absolute;
-	height: 100%;
-	top: 3px;
-	left: 6px;
-	outline-style: none;
-	path {
-		fill: transparent;
-		stroke: #ff0000;
-		stroke-width: 30;
-	}
 }
 
 .main-heading__name .character,

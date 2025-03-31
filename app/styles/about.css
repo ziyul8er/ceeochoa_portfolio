@@ -1,0 +1,18 @@
+.main-heading__about {
+	height: 50px;
+	margin-top: 20px;
+	display: flex;
+	align-self: flex-start;
+}
+
+.main-heading__about .character {
+	margin-left: 37px;
+}
+
+.main-heading__about .character:first-child {
+	margin-left: 0px;
+}
+
+.main-heading__about .character:nth-child(2) {
+	margin-left: 40px;
+}
