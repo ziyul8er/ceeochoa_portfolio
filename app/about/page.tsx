@@ -17,13 +17,15 @@ export default function About() {
 	const tLetter = createSVGElement(tChunkLetter, 833);
 
 	return (
-		<div className="main-heading">
-			<div className="main-heading__about">
-				{aLetter}
-				{bLetter}
-				{oLetter}
-				{uLetter}
-				{tLetter}
+		<div className="window">
+			<div className="main-heading">
+				<div className="main-heading__about">
+					{aLetter}
+					{bLetter}
+					{oLetter}
+					{uLetter}
+					{tLetter}
+				</div>
 			</div>
 		</div>
 	);

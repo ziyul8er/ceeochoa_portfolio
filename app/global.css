@@ -21,7 +21,7 @@ body {
 	overflow: hidden;
 }
 
-.main-title {
+.window {
 	display: flex;
 	flex-direction: column;
 	border: solid red;
@@ -30,29 +30,9 @@ body {
 	height: 80vh;
 }
 
-.intro {
-	margin: 20px;
-	font-size: 15px;
-}
-
-.home-links {
+.main-heading {
 	display: flex;
 	flex-direction: column;
-	align-self: center;
-	font-size: 25px;
-	margin-top: 50px;
-}
-
-.home-links a {
-	margin-top: 10px;
-}
-
-.home-links:first-child {
-	margin-top: 0px;
-}
-
-.home-links a:hover {
-	color: white;
-	text-shadow: red 2px 2px;
-	cursor: pointer;
+	width: inherit;
+	margin: 8px 8px 8px 20px;
 }
