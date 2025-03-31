@@ -17,7 +17,7 @@ import {
 	periodCenteredChunkLetter
 } from '../variables/svgPaths';
 
-export function DeveloperName() {
+export default function DeveloperName() {
 	function createSVGElement(path: React.JSX.Element, viewBox: number) {
 		return (
 			<>
