@@ -14,11 +14,6 @@ export default function Home() {
 		<>
 			<div className="window">
 				<DeveloperName />
-				<div className={ibmFont.className + ' intro'}>
-					Hey I’m Cee. I am a Web Developer, scientist at heart and
-					passionate about gardening. Currently living and working in{' '}
-					<s>Caracas</s> <s>Oxford</s> Naarm (Melborune).
-				</div>
 
 				<div className={ibmFont.className + ' home-links'}>
 					<Link href="/about">>_About</Link>

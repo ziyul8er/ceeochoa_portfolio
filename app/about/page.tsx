@@ -28,6 +28,14 @@ export default function About() {
 						{uLetter}
 						{tLetter}
 					</div>
+					<p>
+						Cee is a web developer, engineer, mad scientist and
+						music enjoyer/explorer
+					</p>
+					<p>Born and raised in the Caribbean</p>
+					<p>
+						Based: <s>Caracas</s> <s>Oxford</s> Naarm/Melbourne
+					</p>
 				</div>
 			</div>
 		</>
