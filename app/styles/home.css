@@ -1,6 +1,5 @@
-.intro {
-	margin: 20px;
-	font-size: 15px;
+.window {
+	justify-content: space-between;
 }
 
 .home-links {
@@ -8,7 +7,7 @@
 	flex-direction: column;
 	align-self: center;
 	font-size: 25px;
-	margin-top: 50px;
+	margin-bottom: 155px;
 }
 
 .home-links a {
