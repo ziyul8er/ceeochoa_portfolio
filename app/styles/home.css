@@ -1,13 +1,9 @@
-.window {
-	justify-content: space-between;
-}
-
 .home-links {
 	display: flex;
 	flex-direction: column;
 	align-self: center;
 	font-size: 25px;
-	margin-bottom: 155px;
+	margin-top: 125px;
 }
 
 .home-links a {
