@@ -1,3 +1,36 @@
+.window__nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+.window .about-text {
+	font-size: 13px;
+	margin: 5px 0px 0px 30px;
+}
+
+.nav {
+	position: relative;
+	width: 40px;
+	height: 40px;
+}
+
+.nav__back-arrow,
+.nav__back-arrow--shadow {
+	z-index: 1;
+	position: absolute;
+	top: 5px;
+	width: 30px;
+	height: 30px;
+	color: white;
+}
+
+.nav__back-arrow--shadow {
+	z-index: 0;
+	top: 8px;
+	left: 2px;
+	stroke: red;
+}
+
 .main-heading__about {
 	height: 50px;
 	margin-top: 20px;
@@ -22,16 +55,48 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	align-self: center;
 	height: 245px;
+	width: 190px;
+	margin: 20px 0px 20px 50px;
 }
 
+.wall__bot-div,
+.wall__top-div {
+	margin: none;
+	font-size: 10px;
+}
 .wall__bot-div {
+	position: relative;
 	align-self: flex-end;
 }
 
 .wall__dev-pic {
 	position: relative;
-	/* top: 85px;
-	right: 20px; */
-	align-self: flex-end;
+	top: 50px;
+	left: 85px;
+}
+
+.about-text__bottom-section {
+	margin-top: 10px;
+}
+
+.about-text__bottom-section .about-text:nth-child(3) {
+	margin-top: 40px;
+}
+
+.about-text__email {
+	text-decoration: none;
+	color: #ededed;
+	display: flex;
+	align-items: center;
+}
+
+.about-text__email:hover {
+	text-shadow: red 2px 2px;
+}
+
+.about-text__email__icon {
+	font-size: 30px;
+	margin-right: 15px;
 }

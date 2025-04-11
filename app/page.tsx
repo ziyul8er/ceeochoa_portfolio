@@ -16,10 +16,12 @@ export default function Home() {
 				<DeveloperName />
 
 				<div className={ibmFont.className + ' home-links'}>
-					<Link href="/about">>_About</Link>
-					<Link href="mailto:xceeochoax@gmail.com">>_Email</Link>
-					<Link href="https://github.com/ziyul8er">>_GitHub</Link>
-					<Link href="http://www.linkedin.com/in/ceeochoa">>_LinkedIn</Link>
+					<Link href="/about">{'>'}_About</Link>
+					<Link href="mailto:xceeochoax@gmail.com">{'>'}_Email</Link>
+					<Link href="https://github.com/ziyul8er">{'>'}_GitHub</Link>
+					<Link href="http://www.linkedin.com/in/ceeochoa">
+						{'>'}_LinkedIn
+					</Link>
 				</div>
 			</div>
 		</>
