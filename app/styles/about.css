@@ -16,3 +16,22 @@
 .main-heading__about .character:nth-child(2) {
 	margin-left: 40px;
 }
+
+.wall {
+	background-color: #0827f5;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 245px;
+}
+
+.wall__bot-div {
+	align-self: flex-end;
+}
+
+.wall__dev-pic {
+	position: relative;
+	/* top: 85px;
+	right: 20px; */
+	align-self: flex-end;
+}
