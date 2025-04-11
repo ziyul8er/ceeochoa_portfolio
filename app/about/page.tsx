@@ -8,6 +8,7 @@ import createSVGElement, {
 	uChunkLetter,
 	tChunkLetter
 } from '../variables/svgPaths';
+import Link from 'next/link';
 
 export default function About() {
 	const aLetter = createSVGElement(aChunkLetter, 833);
@@ -36,6 +37,11 @@ export default function About() {
 					<p>
 						Based: <s>Caracas</s> <s>Oxford</s> Naarm/Melbourne
 					</p>
+					<p>Let's chat!</p>
+					<Link href="mailto:xceeochoax@gmail.com">
+						xceeochoax@gmail.com
+					</Link>
+					<p>Brunswick - VIC 3056 - Australia</p>
 				</div>
 			</div>
 		</>
