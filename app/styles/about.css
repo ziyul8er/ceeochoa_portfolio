@@ -68,13 +68,16 @@
 }
 .wall__bot-div {
 	position: relative;
+	bottom: 26px;
 	align-self: flex-end;
 }
 
 .wall__dev-pic {
 	position: relative;
-	top: 50px;
-	left: 85px;
+	top: 24px;
+	left: 74px;
+	width: 107.5px;
+	height: 250px;
 }
 
 .about-text__bottom-section {
@@ -102,6 +105,14 @@
 }
 
 @media screen and (min-width: 768px) {
+	.window {
+		width: clamp(614px, 80vw, 640px);
+	}
+
+	.window .about-text {
+		font-size: 16px;
+	}
+
 	.main-heading__about .character:nth-child(2) {
 		margin-left: 57px;
 	}
@@ -118,10 +129,44 @@
 		margin-left: 52px;
 	}
 
+	.about-text__top-section {
+		width: 457px;
+		position: relative;
+		top: 34px;
+	}
+
+	.about-text__bottom-section {
+		position: relative;
+		top: 115px;
+	}
+
+	.about-text__bottom-section .about-text {
+		font-size: 15px;
+	}
+
+	.about-text__bottom-section .about-text:nth-child(3) {
+		position: relative;
+		top: 75px;
+	}
+
+	.about-text__bottom-section .about-text:nth-child(4) {
+		position: relative;
+		top: 80px;
+		font-size: 22px;
+	}
+
+	.about-text__email__icon {
+		font-size: 42px;
+	}
+
 	.wall {
+		position: relative;
+		bottom: 140px;
+		right: 20px;
 		height: 326px;
 		width: 245px;
 		align-self: flex-end;
+		order: 99;
 	}
 
 	.wall__bot-div {
