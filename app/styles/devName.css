@@ -78,11 +78,6 @@
 }
 
 @media screen and (min-width: 768px) {
-	/* .main-heading__name,
-	.main-heading__surname {
-		height: 100px;
-	} */
-
 	.main-heading__surname {
 		margin: 20px 53px;
 	}
