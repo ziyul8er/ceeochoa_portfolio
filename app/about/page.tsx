@@ -26,7 +26,6 @@ export default function About() {
 
 	return (
 		<>
-			{/* deberia poner una flecha para ir para atras */}
 			<div className="window">
 				<div className="window__nav">
 					<div className="main-heading">
@@ -72,7 +71,12 @@ export default function About() {
 					</Link>
 				</div>
 
-				<div className={ibmFont.className + ' about-text'}>
+				<div
+					className={
+						ibmFont.className +
+						' about-text about-text__top-section'
+					}
+				>
 					Cee is a web developer, engineer, mad scientist and music
 					enjoyer/explorer.
 				</div>
@@ -84,8 +88,8 @@ export default function About() {
 					<Image
 						className="wall__dev-pic"
 						src="/media/dev_pic.png"
-						width={84}
-						height={200}
+						width={870}
+						height={1978}
 						alt={"Developer's photo leaning on a wall"}
 					></Image>
 					<div className={ibmFont.className + ' wall__bot-div'}>

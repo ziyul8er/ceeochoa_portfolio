@@ -117,4 +117,20 @@
 	.main-heading__about .character:nth-child(5) {
 		margin-left: 52px;
 	}
+
+	.wall {
+		height: 326px;
+		width: 245px;
+		align-self: flex-end;
+	}
+
+	.wall__bot-div {
+		bottom: 43px;
+	}
+
+	.wall__dev-pic {
+		height: 350px;
+		width: 150.5px;
+		top: 20px;
+	}
 }
