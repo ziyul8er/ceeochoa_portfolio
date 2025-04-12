@@ -79,4 +79,8 @@ body {
 	.main-heading {
 		flex-direction: row;
 	}
+
+	.character {
+		height: 70px;
+	}
 }

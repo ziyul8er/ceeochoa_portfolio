@@ -78,13 +78,75 @@
 }
 
 @media screen and (min-width: 768px) {
+	/* .main-heading__name,
 	.main-heading__surname {
-		margin: 20px 40px;
+		height: 100px;
+	} */
+
+	.main-heading__surname {
+		margin: 20px 53px;
 	}
 
 	.main-heading__job-title {
 		align-self: flex-end;
-		top: 10px;
-		right: 285px;
+		top: 20px;
+		right: 340px;
+	}
+
+	.main-heading__job-title .character {
+		height: 42px;
+	}
+
+	.main-heading__name .character,
+	.main-heading__surname .character {
+		margin-left: 47px;
+	}
+
+	.main-heading__job-title .character:nth-child(2) {
+		margin-left: 45px;
+	}
+
+	.main-heading__job-title .character:nth-child(3) {
+		margin-left: 29px;
+	}
+
+	.main-heading__job-title .character:nth-child(4) {
+		margin-left: 31px;
+	}
+
+	.main-heading__job-title .character:nth-child(5) {
+		margin-left: 11px;
+	}
+
+	.main-heading__job-title .character:nth-child(6) {
+		margin-left: 30px;
+	}
+
+	.main-heading__job-title .character:nth-child(7) {
+		margin-left: 29px;
+	}
+
+	.main-heading__job-title .character:nth-child(8) {
+		margin-left: 35px;
+	}
+
+	.main-heading__job-title .character:nth-child(9) {
+		margin-left: 29px;
+	}
+
+	.main-heading__job-title .character:nth-child(10) {
+		margin-left: 26px;
+	}
+
+	.main-heading__job-title .character:nth-child(11) {
+		margin-left: 31px;
+	}
+
+	.main-heading__job-title .character:nth-child(12) {
+		margin-left: 28px;
+	}
+
+	.main-heading__job-title .character:nth-child(13) {
+		margin-left: 30px;
 	}
 }
