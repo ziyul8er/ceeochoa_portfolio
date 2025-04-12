@@ -24,10 +24,12 @@ body {
 .window {
 	display: flex;
 	flex-direction: column;
+	align-self: center;
 	border: solid red;
 	border-radius: 15px;
 	margin: 25px;
 	height: 80vh;
+	width: 303px;
 }
 
 .main-heading {
@@ -65,5 +67,16 @@ body {
 		fill: transparent;
 		stroke: #ff0000;
 		stroke-width: 30;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.window {
+		width: 80vw;
+		align-self: center;
+	}
+
+	.main-heading {
+		flex-direction: row;
 	}
 }
