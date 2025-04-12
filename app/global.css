@@ -3,13 +3,6 @@
 	--foreground: #ededed;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #181A1B;
-    --foreground: #ededed;
-  }
-} */
-
 body {
 	height: 95vh;
 	display: flex;
@@ -18,7 +11,6 @@ body {
 	color: #ededed;
 	background: var(--background);
 	font-family: Arial, Helvetica, sans-serif;
-	overflow: hidden;
 }
 
 .window {
@@ -28,7 +20,7 @@ body {
 	border: solid red;
 	border-radius: 15px;
 	margin: 25px;
-	height: 80vh;
+	height: clamp(620px, 80vh, 650px);
 	width: 303px;
 }
 

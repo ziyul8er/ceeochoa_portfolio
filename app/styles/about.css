@@ -14,6 +14,13 @@
 	height: 40px;
 }
 
+.nav:hover {
+	.nav__back-arrow--shadow {
+		top: 8px;
+		left: 2px;
+	}
+}
+
 .nav__back-arrow,
 .nav__back-arrow--shadow {
 	z-index: 1;
@@ -26,8 +33,6 @@
 
 .nav__back-arrow--shadow {
 	z-index: 0;
-	top: 8px;
-	left: 2px;
 	stroke: red;
 }
 
