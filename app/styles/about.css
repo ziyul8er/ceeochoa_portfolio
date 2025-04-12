@@ -100,3 +100,21 @@
 	font-size: 30px;
 	margin-right: 15px;
 }
+
+@media screen and (min-width: 768px) {
+	.main-heading__about .character:nth-child(2) {
+		margin-left: 57px;
+	}
+
+	.main-heading__about .character:nth-child(3) {
+		margin-left: 47px;
+	}
+
+	.main-heading__about .character:nth-child(4) {
+		margin-left: 49px;
+	}
+
+	.main-heading__about .character:nth-child(5) {
+		margin-left: 52px;
+	}
+}
