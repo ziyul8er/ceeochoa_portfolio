@@ -1,0 +1,28 @@
+.home-links {
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	font-size: 25px;
+	margin-top: 125px;
+}
+
+.home-links a {
+	color: white;
+	text-decoration: none;
+	margin-top: 10px;
+}
+
+.home-links:first-child {
+	margin-top: 0px;
+}
+
+.home-links a:hover {
+	text-shadow: red 2px 2px;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+	.home-links {
+		font-size: 40px;
+	}
+}

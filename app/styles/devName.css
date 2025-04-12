@@ -1,0 +1,147 @@
+.main-heading__name,
+.main-heading__surname,
+.main-heading__job-title {
+	/* maybe i can delete this one */
+	height: 100%;
+	display: flex;
+}
+
+.main-heading__name {
+	margin-top: 20px;
+	align-self: flex-start;
+}
+
+.main-heading__name,
+.main-heading__surname {
+	height: 50px;
+}
+
+.main-heading__job-title {
+	position: relative;
+	height: 30px;
+	margin-top: 15px;
+}
+
+.main-heading__name .character,
+.main-heading__surname .character {
+	margin-left: 37px;
+}
+
+.main-heading__name .character:first-child,
+.main-heading__surname .character:first-child {
+	margin-left: 0;
+}
+
+.main-heading__job-title .character {
+	height: 25px;
+	margin-left: 18px;
+}
+
+.main-heading__job-title .character:first-child {
+	margin-left: 0;
+}
+
+.main-heading__job-title .character:nth-child(2) {
+	margin-left: 27px;
+}
+
+.main-heading__job-title .character:nth-child(5) {
+	margin-left: 7px;
+}
+
+.main-heading__job-title .character:nth-child(8) {
+	margin-left: 21px;
+}
+
+.main-heading__job-title .character:nth-child(10) {
+	margin-left: 16px;
+}
+
+.main-heading__job-title .character:nth-child(11) {
+	margin-left: 20px;
+}
+
+.main-heading__job-title .character--solid {
+	z-index: 0;
+	top: 2px;
+	left: 3px;
+}
+
+.main-heading__job-title .character--outline {
+	z-index: 1;
+	top: 0;
+	left: 0;
+	path {
+		fill: var(--background);
+		stroke-width: 50;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.main-heading__surname {
+		margin: 20px 53px;
+	}
+
+	.main-heading__job-title {
+		align-self: flex-end;
+		top: 20px;
+		right: 340px;
+	}
+
+	.main-heading__job-title .character {
+		height: 42px;
+	}
+
+	.main-heading__name .character,
+	.main-heading__surname .character {
+		margin-left: 47px;
+	}
+
+	.main-heading__job-title .character:nth-child(2) {
+		margin-left: 45px;
+	}
+
+	.main-heading__job-title .character:nth-child(3) {
+		margin-left: 29px;
+	}
+
+	.main-heading__job-title .character:nth-child(4) {
+		margin-left: 31px;
+	}
+
+	.main-heading__job-title .character:nth-child(5) {
+		margin-left: 11px;
+	}
+
+	.main-heading__job-title .character:nth-child(6) {
+		margin-left: 30px;
+	}
+
+	.main-heading__job-title .character:nth-child(7) {
+		margin-left: 29px;
+	}
+
+	.main-heading__job-title .character:nth-child(8) {
+		margin-left: 35px;
+	}
+
+	.main-heading__job-title .character:nth-child(9) {
+		margin-left: 29px;
+	}
+
+	.main-heading__job-title .character:nth-child(10) {
+		margin-left: 26px;
+	}
+
+	.main-heading__job-title .character:nth-child(11) {
+		margin-left: 31px;
+	}
+
+	.main-heading__job-title .character:nth-child(12) {
+		margin-left: 28px;
+	}
+
+	.main-heading__job-title .character:nth-child(13) {
+		margin-left: 30px;
+	}
+}

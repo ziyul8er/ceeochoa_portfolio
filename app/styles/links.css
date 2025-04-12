@@ -1,0 +1,38 @@
+.contact-links {
+	display: flex;
+	justify-content: space-evenly;
+	height: 50px;
+	margin-bottom: 20px;
+}
+
+.contact-links__wrapper {
+	position: relative;
+	height: 50px;
+	width: 50px;
+}
+
+.contact-links__icon {
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	color: white;
+}
+
+.contact-links__icon--outline {
+	z-index: -1;
+	top: 3px;
+	left: 5px;
+	color: #ff0000;
+}
+
+@media screen and (min-width: 768px) {
+	.contact-links {
+		justify-content: center;
+		height: 70px;
+	}
+
+	.contact-links__icon {
+		height: 70px;
+		width: 70px;
+	}
+}

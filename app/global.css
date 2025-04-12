@@ -1,26 +1,79 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #181a1b;
+	--foreground: #ededed;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #181A1B;
-    --foreground: #ededed;
-  }
-} */
-
 body {
-  height: 95vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #ededed;
-  background: #181a1b;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow: hidden;
+	height: 95vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: #ededed;
+	background: var(--background);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.window {
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	border: solid red;
+	border-radius: 15px;
+	margin: 25px;
+	height: clamp(620px, 80vh, 650px);
+	width: 303px;
+}
+
+.main-heading {
+	display: flex;
+	flex-direction: column;
+	width: inherit;
+	margin: 8px 8px 8px 20px;
+}
+
+.character {
+	position: relative;
+	height: 50px;
+}
+
+.character:first-child {
+	margin-left: 0;
+}
+
+.character--solid {
+	z-index: 1;
+	position: absolute;
+	height: 100%;
+	path {
+		fill: white;
+	}
+}
+
+.character--outline {
+	position: absolute;
+	height: 100%;
+	top: 3px;
+	left: 6px;
+	outline-style: none;
+	path {
+		fill: transparent;
+		stroke: #ff0000;
+		stroke-width: 30;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.window {
+		height: 620px;
+		width: 614px;
+		align-self: center;
+	}
+
+	.main-heading {
+		flex-direction: row;
+	}
+
+	.character {
+		height: 70px;
+	}
 }
